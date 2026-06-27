@@ -389,6 +389,7 @@ async function handleContactSubmit(e) {
   const form = e.target;
   const name = document.getElementById('contactName')?.value.trim();
   const email = document.getElementById('contactEmail')?.value.trim();
+  const phone = document.getElementById('contactPhone')?.value.trim();
   const service = document.getElementById('contactService')?.value;
   const message = document.getElementById('contactMsg')?.value.trim();
   const successEl = document.getElementById('contactSuccess');
@@ -421,6 +422,7 @@ async function handleContactSubmit(e) {
   const templateParams = {
     from_name: name,
     from_email: email,
+    from_phone: phone,
     service_interest: service || 'Not specified',
     message: message,
     to_name: 'JK Click Craft'
