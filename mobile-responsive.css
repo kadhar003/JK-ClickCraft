@@ -1,0 +1,379 @@
+/*
+ * ═══════════════════════════════════════════════════════
+ *  JK Click Craft — Mobile Responsive Patch
+ *  File: mobile-responsive.css
+ *  Link AFTER style.css in index.html  (and after the
+ *  <style> block in gallery.html)
+ *  Touch nothing else — no existing code is changed.
+ * ═══════════════════════════════════════════════════════
+ */
+
+/* ── 0. GLOBAL SAFE DEFAULTS ─────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent text from overflowing any container */
+body { overflow-x: hidden; }
+
+/* ─────────────────────────────────────────────────────── */
+/* ── 1. TABLET  (≤ 1024px) ──────────────────────────── */
+/* ─────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Navbar – reduce link spacing so all 7 items fit */
+  .nav-menu { gap: 4px; }
+  .nav-link  { font-size: 13px; padding: 6px 8px; }
+
+  /* Hero two-column → stack */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 24px 60px;
+    gap: 40px;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-visual  { width: 100%; max-width: 420px; margin: 0 auto; }
+
+  /* About grid */
+  .about-grid { grid-template-columns: 1fr; }
+  .about-left  { display: none; } /* hide decorative icon grid on tablet */
+
+  /* Services grid: 2 columns */
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Portfolio grid */
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Footer grid */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────── */
+/* ── 2. MOBILE  (≤ 768px) ───────────────────────────── */
+/* ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* ── NAVBAR ── */
+  .navbar { padding: 0 16px; }
+
+  .nav-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  /* Hide desktop nav links */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--bg, #f3f7fb);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding: 12px 0 20px;
+    gap: 0;
+    z-index: 9999;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  }
+
+  /* JS adds .open to navMenu when hamburger is clicked */
+  .nav-menu.open { display: flex; }
+
+  .nav-link {
+    display: block;
+    padding: 14px 24px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    width: 100%;
+  }
+  .nav-link:last-child { border-bottom: none; }
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 0; /* Let flex alignment handle spacing */
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  /* X animation when open */
+  .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* nav-auth: show on small screens, positioned nicely next to hamburger without overlap */
+  .nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto; /* Pushes auth and hamburger to the right */
+    margin-right: 16px; /* Spacing between login/profile and hamburger to prevent overlap */
+  }
+  /* Compact Login Button in mobile navbar */
+  .nav-login-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+  /* Compact Profile Avatar on mobile navbar */
+  .nav-user-btn {
+    padding: 2px;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 50%;
+  }
+  .nav-user-btn span,
+  .nav-user-btn .nav-chevron {
+    display: none; /* Hide greeting text and chevron on mobile */
+  }
+  .nav-user-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 80px 16px 48px;
+    gap: 32px;
+  }
+  .hero-title { font-size: clamp(26px, 7vw, 40px); line-height: 1.2; }
+  .hero-subtitle { font-size: 14px; }
+  .hero-badge { font-size: 11px; padding: 6px 14px; }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .hero-cta .btn { width: 100%; max-width: 280px; text-align: center; }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .stat { min-width: 80px; }
+  .stat-divider { display: none; }
+
+  /* hero visual: shrink the floating browser card */
+  .hero-visual { max-width: 300px; }
+  .hero-card-main { width: 100%; max-width: 320px; }
+  .hero-card-sm { display: none; } /* hide small floating cards on mobile */
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 48px 16px; }
+  .container { padding: 0 4px; }
+
+  .section-title { font-size: clamp(20px, 5.5vw, 28px); line-height: 1.3; }
+  .section-sub   { font-size: 13px; }
+
+  /* ── ABOUT ── */
+  .about-grid    { grid-template-columns: 1fr; gap: 24px; }
+  .about-left    { display: none; }
+  .about-pillars { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pillar        { padding: 12px; font-size: 13px; }
+
+  /* ── SERVICES ── */
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .service-card  { padding: 20px 16px; }
+  .sc-title      { font-size: 15px; }
+  .sc-desc       { font-size: 13px; }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
+  .portfolio-card { padding: 0; }
+
+  /* ── STATS / COUNTER SECTION ── */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .stat-card { padding: 20px 12px; }
+
+  /* ── PROCESS / STEPS ── */
+  .process-grid  { grid-template-columns: 1fr; }
+  .process-step  { padding: 20px 16px; }
+
+  /* ── REVIEWS / CAROUSEL ── */
+  .reviews-carousel { padding: 0 8px; }
+  .review-card { padding: 20px 16px; font-size: 13px; }
+
+  /* ── FAQ ── */
+  .faq-item { padding: 16px; }
+  .faq-q    { font-size: 14px; }
+  .faq-a    { font-size: 13px; }
+
+  /* ── CONTACT ── */
+  .contact-grid  { grid-template-columns: 1fr; gap: 24px; }
+  .contact-info-grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact-social-card { padding: 20px 16px; }
+  .contact-feedback-cta {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .contact-feedback-cta .btn { align-self: center; }
+
+  /* Contact form inputs full-width */
+  .contact-form { padding: 20px 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 14px; }
+
+  /* ── FOOTER ── */
+  .footer { padding: 48px 16px 24px; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-brand  { text-align: center; }
+  .footer-socials { justify-content: center; }
+  .footer-contact .btn { width: 100%; text-align: center; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+  .wa-tooltip { display: none; }
+
+  /* ── BUTTONS ── */
+  .btn { font-size: 14px; padding: 10px 20px; }
+}
+
+
+/* ─────────────────────────────────────────────────────── */
+/* ── 3. SMALL MOBILE  (≤ 480px) ─────────────────────── */
+/* ─────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  .hero-title    { font-size: clamp(22px, 8vw, 30px); }
+  .section-title { font-size: clamp(18px, 6vw, 24px); }
+
+  /* Stats: 1 column on very small screens */
+  .stats-grid    { grid-template-columns: 1fr; }
+  .about-pillars { grid-template-columns: 1fr; }
+
+  /* Social buttons in contact section */
+  .social-links  { gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .social-btn    { width: 44px; height: 44px; }
+
+  /* Footer links: compact */
+  .footer-links ul { columns: 2; }
+
+  /* Scroll-to-top button safe zone above WA float */
+  #scrollToTopBtn { bottom: 80px; right: 16px; width: 44px; height: 44px; font-size: 18px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════ */
+/*  GALLERY.HTML — extra responsive rules                  */
+/* ═══════════════════════════════════════════════════════ */
+
+/* Gallery page header */
+@media (max-width: 768px) {
+  .agency-header { padding: 24px 16px 20px; }
+  .agency-title  { font-size: 22px; }
+  .agency-subtitle { font-size: 11px; letter-spacing: 1px; }
+
+  /* TOC pills: smaller, allow wrap */
+  .toc { padding: 12px 12px; gap: 6px; }
+  .toc-pill {
+    font-size: 9px;
+    padding: 5px 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Palette sections */
+  .palette-section { padding: 28px 14px; }
+  .palette-title   { font-size: 17px; }
+
+  /* Mockup browser card */
+  .mockup { border-radius: 10px; }
+
+  /* Section meta row */
+  .section-meta {
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  /* Color Design System (CDS) panel */
+  .cds-panel { padding: 16px 12px; }
+  .cds-controls { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* Tab bar */
+  .cds-tabs { flex-wrap: wrap; gap: 6px; }
+  .cds-tab  { font-size: 11px; padding: 6px 12px; }
+
+  /* Brand kit grid: 1 column */
+  .cds-brandkit-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+  /* Scroll-to-top */
+  .scroll-to-top { bottom: 16px; right: 16px; width: 42px; height: 42px; font-size: 18px; }
+
+  /* Mockup sections responsive layout overrides */
+  .m1-cards { grid-template-columns: 1fr !important; }
+  .m2-hero { grid-template-columns: 1fr !important; text-align: center; }
+  .m2-stats { grid-template-columns: 1fr !important; text-align: center; }
+  .m3-features { grid-template-columns: 1fr !important; }
+  .m4-cards { grid-template-columns: 1fr !important; }
+  .m5-pricing { grid-template-columns: 1fr !important; }
+  .m6-hero { grid-template-columns: 1fr !important; text-align: center; }
+  .m7-bottom { grid-template-columns: repeat(2, 1fr) !important; }
+  .m8-hero { grid-template-columns: 1fr !important; text-align: center; }
+  .m8-bottom { grid-template-columns: 1fr !important; }
+  .m9-hero { grid-template-columns: 1fr !important; }
+  .m9-products { grid-template-columns: 1fr !important; }
+  .m10-grid { grid-template-columns: 1fr !important; }
+  .m11-services { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .agency-title  { font-size: 18px; }
+  .cds-controls  { grid-template-columns: 1fr; }
+  .toc-pill      { font-size: 8px; padding: 4px 8px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════ */
+/*  HAMBURGER JS HELPER  — works even if script.js adds   */
+/*  class="open" to #navMenu instead of nav-menu          */
+/* ═══════════════════════════════════════════════════════ */
+/* If the existing script.js already toggles a class,
+   these selectors ensure both naming conventions work:   */
+#navMenu.open,
+#navMenu.active,
+.nav-menu.open,
+.nav-menu.active { display: flex !important; }

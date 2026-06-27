@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI Color Palette Brochure | JK Click Craft</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RN9Z1CZWMC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RN9Z1CZWMC');
+  </script>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap');
+
+  html { scroll-behavior: smooth; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .brochure {
+    font-family: 'DM Sans', sans-serif;
+    background: #EEF2F7;
+    color: #1F2A37;
+    min-height: 100vh;
+  }
+
+  .agency-header {
+    background: linear-gradient(160deg, #EEF2F7 0%, #E3E8F0 100%);
+    padding: 40px 32px 32px;
+    border-bottom: 1px solid #C5CCD6;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 6px 6px 16px #C5CCD6, -6px -6px 16px #FFFFFF;
+  }
+  .agency-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(74,123,255,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .agency-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #6B7280;
+    margin-bottom: 12px;
+  }
+  .agency-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #4A7BFF, #6FA4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .agency-subtitle {
+    font-size: 13px;
+    color: #6B7280;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 32px;
+    border-bottom: 1px solid #C5CCD6;
+    background: #E3E8F0;
+    justify-content: center;
+    box-shadow: inset 2px 2px 6px #C5CCD6, inset -2px -2px 6px #FFFFFF;
+  }
+  .toc-pill {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid #C5CCD6;
+    color: #6B7280;
+    background: #EEF2F7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 2px 2px 6px #C5CCD6, -2px -2px 6px #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .toc-pill:hover { 
+    border-color: #6FA4FF; 
+    color: #4A7BFF; 
+    background: #F5F7FB;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 8px #C5CCD6, -4px -4px 8px #FFFFFF;
+  }
+  .toc-pill:active {
+    transform: translateY(0);
+  }
+
+  /* Floating Up Arrow Button */
+  .scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4A7BFF, #6FA4FF);
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 999;
+    box-shadow: 0 4px 16px rgba(74, 123, 255, 0.3);
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+  }
+  .scroll-to-top:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(74, 123, 255, 0.5);
+    background: linear-gradient(135deg, #6FA4FF, #4A7BFF);
+  }
+  .scroll-to-top:active {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(74, 123, 255, 0.3);
+  }
+  .scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .palette-section {
+    padding: 48px 32px;
+    border-bottom: 1px solid #C5CCD6;
+    position: relative;
+    background: #EEF2F7;
+  }
+
+  .section-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .section-number {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #6B7280;
+    text-transform: uppercase;
+  }
+  .section-mood {
+    font-size: 11px;
+    font-style: italic;
+    color: #6B7280;
+    letter-spacing: 0.5px;
+  }
+
+  .palette-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F2A37;
+    margin-bottom: 4px;
+  }
+  .palette-swatches {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .swatch {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 1px solid #C5CCD6;
+    box-shadow: 1px 1px 3px #C5CCD6, -1px -1px 3px #FFFFFF;
+  }
+  .swatch-label {
+    font-size: 10px;
+    color: #6B7280;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 4px;
+  }
+
+  /* ─── MOCKUP SHELL ─── */
+  .mockup {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 8px 8px 24px #C5CCD6, -8px -8px 24px #FFFFFF;
+    font-family: 'DM Sans', sans-serif;
+    border: 1px solid #E6ECF5;
+  }
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: #E3E8F0;
+    border-bottom: 1px solid #C5CCD6;
+  }
+  .b-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .b-red { background: #ff5f57; }
+  .b-yellow { background: #febc2e; }
+  .b-green { background: #28c840; }
+  .b-url {
+    flex: 1;
+    font-size: 10px;
+    background: #F5F7FB;
+    border-radius: 6px;
+    padding: 4px 10px;
+    color: #6B7280;
+    margin-left: 8px;
+    letter-spacing: 0.3px;
+    border: 1px solid #C5CCD6;
+  }
+
+  /* ── 1. Deep Burgundy & Golden Sand ── */
+  .m1 { background: #1a0810; }
+  .m1-nav { display:flex; justify-content:space-between; align-items:center; padding:18px 28px; background:#14060d; border-bottom:1px solid rgba(180,120,60,0.2); }
+  .m1-logo { font-family:'Playfair Display',serif; font-size:16px; color:#c9a25a; letter-spacing:1px; }
+  .m1-links { display:flex; gap:20px; }
+  .m1-link { font-size:11px; color:rgba(201,162,90,0.6); text-transform:uppercase; letter-spacing:1.5px; }
+  .m1-hero { padding:52px 28px 40px; background:linear-gradient(160deg,#2d0f1a 0%,#1a0810 60%); }
+  .m1-eyebrow { font-size:10px; letter-spacing:4px; color:#c9a25a; text-transform:uppercase; margin-bottom:14px; opacity:0.7; }
+  .m1-h1 { font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:#f5e8d0; line-height:1.2; margin-bottom:16px; }
+  .m1-p { font-size:12px; color:rgba(245,232,208,0.5); line-height:1.8; max-width:340px; margin-bottom:24px; }
+  .m1-btns { display:flex; gap:12px; }
+  .m1-btn-primary { background:#c9a25a; color:#14060d; padding:10px 22px; border-radius:4px; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+  .m1-btn-ghost { border:1px solid rgba(201,162,90,0.4); color:#c9a25a; padding:10px 22px; border-radius:4px; font-size:11px; letter-spacing:1px; text-transform:uppercase; }
+  .m1-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:24px 28px; background:#12050e; }
+  .m1-card { background:rgba(201,162,90,0.04); border:1px solid rgba(201,162,90,0.12); border-radius:8px; padding:16px; }
+  .m1-card-icon { width:28px; height:28px; border-radius:6px; background:rgba(201,162,90,0.12); margin-bottom:10px; display:flex; align-items:center; justify-content:center; }
+  .m1-card-icon-dot { width:8px; height:8px; border-radius:50%; background:#c9a25a; }
+  .m1-card-t { font-size:12px; font-weight:600; color:#f5e8d0; margin-bottom:4px; }
+  .m1-card-s { font-size:10px; color:rgba(245,232,208,0.35); line-height:1.6; }
+
+  /* ── 2. Soft Sage & Deep Olive ── */
+  .m2 { background:#f2f5ed; }
+  .m2-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#fff; border-bottom:1px solid #e8ede0; }
+  .m2-logo { font-size:14px; font-weight:600; color:#3a4a2e; letter-spacing:-0.3px; }
+  .m2-links { display:flex; gap:18px; }
+  .m2-link { font-size:11px; color:#7a8f6a; }
+  .m2-btn { background:#3a4a2e; color:#f2f5ed; padding:7px 16px; border-radius:20px; font-size:11px; font-weight:500; }
+  .m2-hero { display:grid; grid-template-columns:1fr 1fr; padding:36px 28px; gap:24px; align-items:center; }
+  .m2-badge { display:inline-block; background:#d4e0c4; color:#3a4a2e; font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:5px 12px; border-radius:100px; margin-bottom:12px; }
+  .m2-h1 { font-family:'Playfair Display',serif; font-size:24px; color:#2a3820; line-height:1.3; margin-bottom:12px; }
+  .m2-p { font-size:11px; color:#7a8f6a; line-height:1.8; margin-bottom:18px; }
+  .m2-cta { background:#3a4a2e; color:#f2f5ed; padding:10px 20px; border-radius:6px; font-size:11px; font-weight:500; display:inline-block; }
+  .m2-img { background:linear-gradient(135deg,#c8d8b0 0%,#7a9a6a 100%); border-radius:12px; height:120px; display:flex; align-items:center; justify-content:center; }
+  .m2-img-inner { width:48px; height:48px; background:rgba(255,255,255,0.4); border-radius:50%; }
+  .m2-stats { display:grid; grid-template-columns:repeat(3,1fr); padding:20px 28px; gap:16px; background:#fff; border-top:1px solid #e8ede0; }
+  .m2-stat-n { font-size:20px; font-weight:700; color:#3a4a2e; }
+  .m2-stat-l { font-size:10px; color:#7a8f6a; text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+
+  /* ── 3. Pumpkin & Charcoal ── */
+  .m3 { background:#1c1c1c; }
+  .m3-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#141414; }
+  .m3-logo { font-size:15px; font-weight:700; color:#fff; }
+  .m3-logo span { color:#e8682a; }
+  .m3-links { display:flex; gap:18px; align-items:center; }
+  .m3-link { font-size:11px; color:#888; }
+  .m3-btn { background:#e8682a; color:#fff; padding:7px 16px; border-radius:6px; font-size:11px; font-weight:600; }
+  .m3-hero { padding:40px 28px; }
+  .m3-tag { display:inline-block; background:rgba(232,104,42,0.15); border:1px solid rgba(232,104,42,0.3); color:#e8682a; padding:4px 12px; border-radius:4px; font-size:10px; letter-spacing:1px; text-transform:uppercase; margin-bottom:14px; }
+  .m3-h1 { font-size:28px; font-weight:700; color:#fff; line-height:1.2; margin-bottom:8px; }
+  .m3-h1 em { color:#e8682a; font-style:normal; }
+  .m3-p { font-size:12px; color:#666; line-height:1.7; max-width:320px; margin-bottom:22px; }
+  .m3-btns { display:flex; gap:10px; }
+  .m3-bp { background:#e8682a; color:#fff; padding:10px 22px; border-radius:6px; font-size:11px; font-weight:600; }
+  .m3-bg { background:rgba(255,255,255,0.06); color:#ccc; padding:10px 22px; border-radius:6px; font-size:11px; }
+  .m3-features { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:20px 28px; background:#181818; border-top:1px solid #252525; }
+  .m3-feat { background:#212121; border-radius:8px; padding:14px; display:flex; gap:10px; align-items:flex-start; }
+  .m3-feat-dot { width:6px; height:6px; border-radius:50%; background:#e8682a; margin-top:4px; flex-shrink:0; }
+  .m3-feat-t { font-size:11px; font-weight:600; color:#ddd; margin-bottom:3px; }
+  .m3-feat-s { font-size:10px; color:#555; }
+
+  /* ── 4. Cloudy Sky & Ocean Blue ── */
+  .m4 { background:#f0f4f8; }
+  .m4-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#fff; box-shadow:0 1px 0 #e2eaf2; }
+  .m4-logo { font-size:14px; font-weight:600; color:#1a4a7a; }
+  .m4-links { display:flex; gap:18px; align-items:center; }
+  .m4-link { font-size:11px; color:#6a8aaa; }
+  .m4-btn { background:#1a6abf; color:#fff; padding:7px 16px; border-radius:8px; font-size:11px; font-weight:500; }
+  .m4-hero { background:linear-gradient(180deg,#e8f2fa 0%,#f0f4f8 100%); padding:40px 28px; text-align:center; }
+  .m4-chip { display:inline-block; background:#d0e8f8; color:#1a6abf; font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:14px; }
+  .m4-h1 { font-family:'Playfair Display',serif; font-size:26px; color:#0d2d4a; margin-bottom:10px; line-height:1.25; }
+  .m4-p { font-size:11px; color:#6a8aaa; line-height:1.8; max-width:320px; margin:0 auto 20px; }
+  .m4-btns { display:flex; gap:10px; justify-content:center; }
+  .m4-bp { background:#1a6abf; color:#fff; padding:10px 24px; border-radius:8px; font-size:11px; font-weight:500; }
+  .m4-bg { background:#fff; color:#1a6abf; border:1px solid #c0d8f0; padding:10px 24px; border-radius:8px; font-size:11px; }
+  .m4-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:22px 28px; }
+  .m4-card { background:#fff; border-radius:10px; padding:16px; box-shadow:0 2px 12px rgba(26,74,122,0.07); border:1px solid #e2eaf2; }
+  .m4-card-bar { height:3px; border-radius:2px; background:linear-gradient(90deg,#1a6abf,#5ab0f0); margin-bottom:10px; }
+  .m4-card-t { font-size:11px; font-weight:600; color:#0d2d4a; margin-bottom:4px; }
+  .m4-card-s { font-size:10px; color:#8aaac4; }
+
+  /* ── 5. Lemon Chiffon & Ultra Violet ── */
+  .m5 { background:#fdf8e1; }
+  .m5-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#fef9e8; border-bottom:1px solid #f0e8c0; }
+  .m5-logo { font-family:'Playfair Display',serif; font-size:15px; color:#2d1b69; }
+  .m5-links { display:flex; gap:16px; align-items:center; }
+  .m5-link { font-size:11px; color:#6040a0; }
+  .m5-btn { background:#4527a0; color:#fff; padding:7px 16px; border-radius:6px; font-size:11px; font-weight:500; }
+  .m5-hero { padding:44px 28px; background:linear-gradient(160deg,#fffde6 0%,#f3e6ff 100%); }
+  .m5-tag { font-size:10px; letter-spacing:3px; color:#7c4dff; text-transform:uppercase; margin-bottom:12px; }
+  .m5-h1 { font-family:'Playfair Display',serif; font-size:27px; color:#1a0050; line-height:1.25; margin-bottom:12px; }
+  .m5-h1 em { color:#7c4dff; font-style:normal; }
+  .m5-p { font-size:11px; color:#8060b0; line-height:1.8; max-width:300px; margin-bottom:22px; }
+  .m5-btns { display:flex; gap:10px; }
+  .m5-bp { background:#7c4dff; color:#fff; padding:10px 22px; border-radius:8px; font-size:11px; font-weight:600; box-shadow:0 4px 16px rgba(124,77,255,0.35); }
+  .m5-bg { background:rgba(124,77,255,0.08); color:#7c4dff; border:1px solid rgba(124,77,255,0.25); padding:10px 22px; border-radius:8px; font-size:11px; }
+  .m5-pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:22px 28px; background:#fef9e8; border-top:1px solid #f0e8c0; }
+  .m5-tier { background:#fff; border-radius:10px; padding:16px; border:1px solid #e8d8f8; }
+  .m5-tier.active { background:#4527a0; border-color:#4527a0; }
+  .m5-tier-n { font-size:11px; font-weight:600; color:#2d1b69; margin-bottom:4px; }
+  .m5-tier.active .m5-tier-n { color:#ffe082; }
+  .m5-tier-p { font-size:20px; font-weight:700; color:#4527a0; }
+  .m5-tier.active .m5-tier-p { color:#fff; }
+  .m5-tier-s { font-size:9px; color:#9c70c0; margin-top:2px; }
+  .m5-tier.active .m5-tier-s { color:rgba(255,255,255,0.5); }
+
+  /* ── 6. Peach Ice & Aqua Mist ── */
+  .m6 { background:#fdf6f0; }
+  .m6-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#fff; border-bottom:1px solid #f0e8e0; }
+  .m6-logo { font-size:14px; font-weight:600; color:#2d4a4a; letter-spacing:-0.3px; }
+  .m6-links { display:flex; gap:16px; align-items:center; }
+  .m6-link { font-size:11px; color:#8aada8; }
+  .m6-btn { background:#3aada8; color:#fff; padding:7px 16px; border-radius:20px; font-size:11px; }
+  .m6-hero { display:grid; grid-template-columns:55% 1fr; gap:20px; padding:32px 28px; align-items:center; }
+  .m6-eyebrow { display:flex; align-items:center; gap:6px; margin-bottom:12px; }
+  .m6-dot { width:6px; height:6px; border-radius:50%; background:#ffb999; }
+  .m6-eyebrow-t { font-size:10px; color:#c8907a; letter-spacing:2px; text-transform:uppercase; }
+  .m6-h1 { font-family:'Cormorant Garamond',serif; font-size:28px; color:#2d3a38; line-height:1.25; margin-bottom:12px; font-weight:600; }
+  .m6-p { font-size:11px; color:#8aada8; line-height:1.8; margin-bottom:20px; }
+  .m6-cta { background:linear-gradient(135deg,#ffb999,#ff8a70); color:#fff; padding:10px 22px; border-radius:20px; font-size:11px; font-weight:500; display:inline-block; }
+  .m6-visual { display:flex; flex-direction:column; gap:8px; }
+  .m6-card { background:#fff; border-radius:12px; padding:14px; border:1px solid #f0e8e0; }
+  .m6-card-row { display:flex; justify-content:space-between; align-items:center; }
+  .m6-card-t { font-size:11px; font-weight:600; color:#2d4a4a; }
+  .m6-card-badge { background:#d6f5f3; color:#2a8a85; font-size:9px; padding:3px 8px; border-radius:100px; letter-spacing:0.5px; }
+  .m6-card-s { font-size:10px; color:#b0c8c5; margin-top:4px; }
+  .m6-bar { height:4px; background:#f0ece8; border-radius:2px; margin-top:8px; overflow:hidden; }
+  .m6-bar-fill { height:100%; border-radius:2px; background:linear-gradient(90deg,#3aada8,#7fd8d4); }
+
+  /* ── 7. Cherry Red & Butter Yellow ── */
+  .m7 { background:#fff8f0; }
+  .m7-nav { display:flex; justify-content:space-between; align-items:center; padding:14px 28px; background:#c41230; }
+  .m7-logo { font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.3px; }
+  .m7-links { display:flex; gap:18px; align-items:center; }
+  .m7-link { font-size:11px; color:rgba(255,255,255,0.65); }
+  .m7-btn { background:#ffd740; color:#8b0000; padding:7px 16px; border-radius:4px; font-size:11px; font-weight:700; }
+  .m7-hero { background:#c41230; padding:36px 28px 28px; }
+  .m7-h1 { font-size:26px; font-weight:700; color:#fff; line-height:1.2; margin-bottom:10px; }
+  .m7-h1 em { color:#ffd740; font-style:normal; }
+  .m7-p { font-size:12px; color:rgba(255,255,255,0.65); line-height:1.7; max-width:300px; margin-bottom:22px; }
+  .m7-btns { display:flex; gap:10px; }
+  .m7-bp { background:#ffd740; color:#8b0000; padding:10px 22px; border-radius:4px; font-size:11px; font-weight:700; }
+  .m7-bg { border:2px solid rgba(255,255,255,0.25); color:#fff; padding:10px 22px; border-radius:4px; font-size:11px; font-weight:600; }
+  .m7-bottom { display:grid; grid-template-columns:repeat(4,1fr); gap:0; background:#fff; border-top:4px solid #ffd740; }
+  .m7-stat { padding:16px; text-align:center; border-right:1px solid #f0e0d0; }
+  .m7-stat:last-child { border-right:none; }
+  .m7-stat-n { font-size:22px; font-weight:700; color:#c41230; }
+  .m7-stat-l { font-size:9px; color:#c08080; text-transform:uppercase; letter-spacing:1px; margin-top:3px; }
+
+  /* ── 8. Mist Gray & Midnight Blue ── */
+  .m8 { background:#f5f5f7; }
+  .m8-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#fff; border-bottom:1px solid #e8e8ee; }
+  .m8-logo { font-size:14px; font-weight:600; color:#0a1628; letter-spacing:-0.5px; }
+  .m8-links { display:flex; gap:18px; align-items:center; }
+  .m8-link { font-size:11px; color:#8890a0; }
+  .m8-btn { background:#0a1628; color:#fff; padding:7px 16px; border-radius:6px; font-size:11px; font-weight:500; }
+  .m8-hero { display:grid; grid-template-columns:1fr 1fr; gap:28px; padding:36px 28px; align-items:center; background:#fff; }
+  .m8-label { font-size:10px; letter-spacing:3px; color:#8890a0; text-transform:uppercase; margin-bottom:12px; }
+  .m8-h1 { font-family:'Playfair Display',serif; font-size:26px; color:#0a1628; line-height:1.25; margin-bottom:12px; }
+  .m8-p { font-size:11px; color:#8890a0; line-height:1.8; margin-bottom:20px; }
+  .m8-btns { display:flex; gap:10px; }
+  .m8-bp { background:#0a1628; color:#fff; padding:10px 22px; border-radius:6px; font-size:11px; font-weight:500; }
+  .m8-bg { background:#f5f5f7; color:#0a1628; padding:10px 22px; border-radius:6px; font-size:11px; border:1px solid #d8d8e0; }
+  .m8-chart { background:#f5f5f7; border-radius:10px; padding:16px; }
+  .m8-chart-label { font-size:10px; color:#8890a0; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
+  .m8-bars { display:flex; align-items:flex-end; gap:6px; height:60px; }
+  .m8-bar { flex:1; border-radius:4px 4px 0 0; background:#d0d4dc; }
+  .m8-bar.highlight { background:#0a1628; }
+  .m8-bottom { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:20px 28px; background:#f5f5f7; }
+  .m8-feature { background:#fff; border-radius:10px; padding:14px; border:1px solid #e8e8ee; }
+  .m8-feat-bar { height:2px; border-radius:1px; background:#0a1628; margin-bottom:10px; width:24px; }
+  .m8-feat-t { font-size:11px; font-weight:600; color:#0a1628; margin-bottom:4px; }
+  .m8-feat-s { font-size:10px; color:#a0a8b8; }
+
+  /* ── 9. Ivory & Donkey Brown ── */
+  .m9 { background:#f9f5ee; }
+  .m9-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#f9f5ee; border-bottom:1px solid #e8dfd0; }
+  .m9-logo { font-family:'Cormorant Garamond',serif; font-size:17px; color:#4a3828; letter-spacing:1px; font-weight:600; }
+  .m9-links { display:flex; gap:20px; }
+  .m9-link { font-size:11px; color:#8a7060; letter-spacing:0.5px; }
+  .m9-btn { border:1px solid #7a5a3a; color:#7a5a3a; padding:7px 16px; border-radius:2px; font-size:10px; letter-spacing:1px; text-transform:uppercase; }
+  .m9-hero { display:grid; grid-template-columns:1fr 1fr; }
+  .m9-left { padding:40px 28px; }
+  .m9-right { background:linear-gradient(160deg,#c8b09a 0%,#8a6a50 100%); min-height:160px; }
+  .m9-overline { font-size:9px; letter-spacing:4px; color:#8a7060; text-transform:uppercase; margin-bottom:14px; }
+  .m9-h1 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:#2a1a0e; line-height:1.2; margin-bottom:12px; }
+  .m9-h1 em { font-style:italic; color:#7a5a3a; }
+  .m9-p { font-size:11px; color:#8a7060; line-height:1.8; margin-bottom:20px; }
+  .m9-cta { background:#4a3828; color:#f9f5ee; padding:10px 22px; font-size:10px; letter-spacing:2px; text-transform:uppercase; display:inline-block; }
+  .m9-products { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:22px 28px; background:#f2ece2; border-top:1px solid #e0d5c5; }
+  .m9-product { background:#f9f5ee; border:1px solid #e0d5c5; }
+  .m9-product-img { height:60px; background:linear-gradient(160deg,#d4c0a8,#a88068); }
+  .m9-product-body { padding:10px 12px; }
+  .m9-product-t { font-size:11px; font-weight:600; color:#2a1a0e; margin-bottom:2px; }
+  .m9-product-p { font-size:12px; color:#7a5a3a; font-weight:600; }
+
+  /* ── 10. Neon Coral & Space Black ── */
+  .m10 { background:#050505; }
+  .m10-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#080808; border-bottom:1px solid #1a1a1a; }
+  .m10-logo { font-size:15px; font-weight:700; color:#fff; }
+  .m10-logo span { color:#ff4d6d; }
+  .m10-links { display:flex; gap:18px; align-items:center; }
+  .m10-link { font-size:11px; color:#444; }
+  .m10-btn { background:#ff4d6d; color:#fff; padding:7px 16px; border-radius:6px; font-size:11px; font-weight:600; box-shadow:0 0 20px rgba(255,77,109,0.4); }
+  .m10-hero { padding:44px 28px; position:relative; overflow:hidden; }
+  .m10-glow { position:absolute; top:-40px; left:50%; transform:translateX(-50%); width:300px; height:200px; background:radial-gradient(ellipse,rgba(255,77,109,0.12) 0%,transparent 70%); pointer-events:none; }
+  .m10-h1 { font-size:30px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px; position:relative; }
+  .m10-h1 em { color:#ff4d6d; font-style:normal; text-shadow:0 0 20px rgba(255,77,109,0.5); }
+  .m10-p { font-size:12px; color:#555; line-height:1.7; max-width:300px; margin-bottom:24px; position:relative; }
+  .m10-btns { display:flex; gap:10px; position:relative; }
+  .m10-bp { background:#ff4d6d; color:#fff; padding:10px 22px; border-radius:6px; font-size:11px; font-weight:700; box-shadow:0 4px 20px rgba(255,77,109,0.45); }
+  .m10-bg { background:#111; color:#888; border:1px solid #222; padding:10px 22px; border-radius:6px; font-size:11px; }
+  .m10-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#111; border-top:1px solid #111; }
+  .m10-cell { background:#050505; padding:16px; }
+  .m10-cell-n { font-size:24px; font-weight:700; color:#ff4d6d; }
+  .m10-cell-l { font-size:10px; color:#333; text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+
+  /* ── 11. Deep Forest & Champagne ── */
+  .m11 { background:#0e1c12; }
+  .m11-nav { display:flex; justify-content:space-between; align-items:center; padding:16px 28px; background:#091410; border-bottom:1px solid rgba(220,196,140,0.12); }
+  .m11-logo { font-family:'Playfair Display',serif; font-size:15px; color:#dcc48c; letter-spacing:1px; }
+  .m11-links { display:flex; gap:18px; align-items:center; }
+  .m11-link { font-size:11px; color:rgba(220,196,140,0.4); }
+  .m11-btn { border:1px solid rgba(220,196,140,0.35); color:#dcc48c; padding:7px 16px; border-radius:4px; font-size:10px; letter-spacing:1px; text-transform:uppercase; }
+  .m11-hero { padding:44px 28px; background:linear-gradient(160deg,#142018 0%,#0e1c12 60%); }
+  .m11-eyebrow { font-size:9px; letter-spacing:4px; color:rgba(220,196,140,0.5); text-transform:uppercase; margin-bottom:14px; }
+  .m11-h1 { font-family:'Playfair Display',serif; font-size:28px; color:#f5edd0; line-height:1.2; margin-bottom:12px; }
+  .m11-h1 em { color:#dcc48c; font-style:italic; }
+  .m11-p { font-size:11px; color:rgba(245,237,208,0.45); line-height:1.9; max-width:300px; margin-bottom:24px; }
+  .m11-btns { display:flex; gap:12px; }
+  .m11-bp { background:#dcc48c; color:#0e1c12; padding:10px 22px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+  .m11-bg { border:1px solid rgba(220,196,140,0.25); color:rgba(220,196,140,0.7); padding:10px 22px; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; }
+  .m11-services { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:24px 28px; background:#091410; border-top:1px solid rgba(220,196,140,0.08); }
+  .m11-svc { border:1px solid rgba(220,196,140,0.1); border-radius:6px; padding:16px; background:rgba(220,196,140,0.02); }
+  .m11-svc-line { width:24px; height:1px; background:#dcc48c; opacity:0.4; margin-bottom:10px; }
+  .m11-svc-t { font-size:12px; font-weight:500; color:#dcc48c; margin-bottom:4px; }
+  .m11-svc-s { font-size:10px; color:rgba(220,196,140,0.3); line-height:1.6; }
+
+  /* Footer */
+  .brochure-footer {
+    padding: 40px 32px;
+    background: #E3E8F0;
+    border-top: 1px solid #C5CCD6;
+    text-align: center;
+    box-shadow: inset 0 4px 12px #C5CCD6;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    background: linear-gradient(135deg, #4A7BFF, #6FA4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .footer-tagline { font-size: 11px; color: #6B7280; letter-spacing: 2px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="brochure">
+  <div class="agency-header">
+    <div class="agency-logo">JK ClickCraft — Design Studio</div>
+    <div class="agency-title">UI Color Palette Brochure</div>
+    <div class="agency-subtitle">11 Curated Design Directions · 2026 Collection</div>
+  </div>
+
+  <div class="toc">
+    <a href="#palette-burgundy" class="toc-pill">Deep Burgundy</a>
+    <a href="#palette-sage" class="toc-pill">Soft Sage</a>
+    <a href="#palette-pumpkin" class="toc-pill">Pumpkin & Charcoal</a>
+    <a href="#palette-sky" class="toc-pill">Cloudy Sky</a>
+    <a href="#palette-violet" class="toc-pill">Lemon & Violet</a>
+    <a href="#palette-peach" class="toc-pill">Peach & Aqua</a>
+    <a href="#palette-cherry" class="toc-pill">Cherry Red</a>
+    <a href="#palette-gray" class="toc-pill">Mist Gray</a>
+    <a href="#palette-ivory" class="toc-pill">Ivory & Brown</a>
+    <a href="#palette-coral" class="toc-pill">Neon Coral</a>
+    <a href="#palette-forest" class="toc-pill">Deep Forest</a>
+    <div class="toc-pill" onclick="document.getElementById('custom-design-studio').scrollIntoView({behavior:'smooth'})" style="border-color:#4A7BFF;color:#4A7BFF;background:rgba(74,123,255,0.08);">✦ Design Studio</div>
+  </div>
+
+  <div class="gallery">
+
+    <!-- ──── 01 ──── -->
+    <div class="palette-section" id="palette-burgundy">
+      <div class="section-meta">
+        <span class="section-number">Palette 01</span>
+        <span class="section-mood">Opulent · Timeless · Aristocratic</span>
+      </div>
+      <div class="palette-title" style="color:#c9a25a;">Deep Burgundy &amp; Golden Sand</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#6b0f2b;"></div>
+        <div class="swatch" style="background:#8b1a35;"></div>
+        <div class="swatch" style="background:#c9a25a;"></div>
+        <div class="swatch" style="background:#f5e8d0;"></div>
+        <span class="swatch-label">Luxury · Fine dining · Jewellery</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">maison-luxe.co</div>
+        </div>
+        <div class="m1">
+          <div class="m1-nav">
+            <div class="m1-logo">MAISON·LUXE</div>
+            <div class="m1-links">
+              <span class="m1-link">Collections</span>
+              <span class="m1-link">Atelier</span>
+              <span class="m1-link">Boutique</span>
+            </div>
+          </div>
+          <div class="m1-hero">
+            <div class="m1-eyebrow">Autumn Collection 2025</div>
+            <div class="m1-h1">Where Luxury<br>Meets Artistry</div>
+            <div class="m1-p">Handcrafted for those who seek beauty beyond the ordinary. Each piece tells a story of heritage and refined craftsmanship.</div>
+            <div class="m1-btns">
+              <div class="m1-btn-primary">Explore</div>
+              <div class="m1-btn-ghost">Lookbook</div>
+            </div>
+          </div>
+          <div class="m1-cards">
+            <div class="m1-card">
+              <div class="m1-card-icon"><div class="m1-card-icon-dot"></div></div>
+              <div class="m1-card-t">Heritage Crafts</div>
+              <div class="m1-card-s">Handmade since 1892 with traditional techniques</div>
+            </div>
+            <div class="m1-card">
+              <div class="m1-card-icon"><div class="m1-card-icon-dot"></div></div>
+              <div class="m1-card-t">Private Atelier</div>
+              <div class="m1-card-s">Bespoke commissions for discerning clients</div>
+            </div>
+            <div class="m1-card">
+              <div class="m1-card-icon"><div class="m1-card-icon-dot"></div></div>
+              <div class="m1-card-t">Global Delivery</div>
+              <div class="m1-card-s">White-glove service to 40+ countries worldwide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 02 ──── -->
+    <div class="palette-section" id="palette-sage">
+      <div class="section-meta">
+        <span class="section-number">Palette 02</span>
+        <span class="section-mood">Calm · Organic · Wellness-forward</span>
+      </div>
+      <div class="palette-title" style="color:#8a9e70;">Soft Sage &amp; Deep Olive</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#c8d8b0;"></div>
+        <div class="swatch" style="background:#7a9a6a;"></div>
+        <div class="swatch" style="background:#3a4a2e;"></div>
+        <div class="swatch" style="background:#f2f5ed;"></div>
+        <span class="swatch-label">Wellness · Eco brands · Botanicals</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">botanika-wellness.com</div>
+        </div>
+        <div class="m2">
+          <div class="m2-nav">
+            <div class="m2-logo">Botanika</div>
+            <div class="m2-links">
+              <span class="m2-link">Shop</span>
+              <span class="m2-link">Rituals</span>
+              <span class="m2-link">Journal</span>
+              <div class="m2-btn">Get Started</div>
+            </div>
+          </div>
+          <div class="m2-hero">
+            <div>
+              <div class="m2-badge">100% Organic</div>
+              <div class="m2-h1">Rooted in Nature,<br>Crafted for You</div>
+              <div class="m2-p">Plant-based wellness rituals designed to restore balance and nourish from within. Certified organic, sustainably sourced.</div>
+              <div class="m2-cta">Shop Now</div>
+            </div>
+            <div class="m2-img"><div class="m2-img-inner"></div></div>
+          </div>
+          <div class="m2-stats">
+            <div><div class="m2-stat-n">4.9★</div><div class="m2-stat-l">Avg. Rating</div></div>
+            <div><div class="m2-stat-n">50k+</div><div class="m2-stat-l">Customers</div></div>
+            <div><div class="m2-stat-n">100%</div><div class="m2-stat-l">Natural</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 03 ──── -->
+    <div class="palette-section" id="palette-pumpkin">
+      <div class="section-meta">
+        <span class="section-number">Palette 03</span>
+        <span class="section-mood">Bold · Industrial · High-energy</span>
+      </div>
+      <div class="palette-title" style="color:#e8682a;">Pumpkin &amp; Charcoal</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#e8682a;"></div>
+        <div class="swatch" style="background:#bf4d18;"></div>
+        <div class="swatch" style="background:#2d2d2d;"></div>
+        <div class="swatch" style="background:#ffffff;"></div>
+        <span class="swatch-label">Tech startups · Sports · Agency</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">forge-digital.io</div>
+        </div>
+        <div class="m3">
+          <div class="m3-nav">
+            <div class="m3-logo">FORGE<span>.</span></div>
+            <div class="m3-links">
+              <span class="m3-link">Work</span>
+              <span class="m3-link">Services</span>
+              <span class="m3-link">About</span>
+              <div class="m3-btn">Start Project</div>
+            </div>
+          </div>
+          <div class="m3-hero">
+            <div class="m3-tag">Creative Agency</div>
+            <div class="m3-h1">We Build <em>Brands</em><br>That Burn Bright</div>
+            <div class="m3-p">From strategy to execution, we craft digital experiences that cut through the noise and make lasting impact.</div>
+            <div class="m3-btns">
+              <div class="m3-bp">View Our Work</div>
+              <div class="m3-bg">Case Studies</div>
+            </div>
+          </div>
+          <div class="m3-features">
+            <div class="m3-feat">
+              <div class="m3-feat-dot"></div>
+              <div><div class="m3-feat-t">Brand Strategy</div><div class="m3-feat-s">Visual identity & positioning</div></div>
+            </div>
+            <div class="m3-feat">
+              <div class="m3-feat-dot"></div>
+              <div><div class="m3-feat-t">UI/UX Design</div><div class="m3-feat-s">Product & web experiences</div></div>
+            </div>
+            <div class="m3-feat">
+              <div class="m3-feat-dot"></div>
+              <div><div class="m3-feat-t">Development</div><div class="m3-feat-s">React, Next.js, headless CMS</div></div>
+            </div>
+            <div class="m3-feat">
+              <div class="m3-feat-dot"></div>
+              <div><div class="m3-feat-t">Growth</div><div class="m3-feat-s">SEO, performance & analytics</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 04 ──── -->
+    <div class="palette-section" id="palette-sky">
+      <div class="section-meta">
+        <span class="section-number">Palette 04</span>
+        <span class="section-mood">Trustworthy · Corporate · Clear-headed</span>
+      </div>
+      <div class="palette-title" style="color:#5ab0f0;">Cloudy Sky &amp; Ocean Blue</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#e8f2fa;"></div>
+        <div class="swatch" style="background:#5ab0f0;"></div>
+        <div class="swatch" style="background:#1a6abf;"></div>
+        <div class="swatch" style="background:#0d2d4a;"></div>
+        <span class="swatch-label">SaaS · Finance · Healthcare</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">clarityhq.com</div>
+        </div>
+        <div class="m4">
+          <div class="m4-nav">
+            <div class="m4-logo">ClarityHQ</div>
+            <div class="m4-links">
+              <span class="m4-link">Product</span>
+              <span class="m4-link">Pricing</span>
+              <span class="m4-link">Enterprise</span>
+              <div class="m4-btn">Sign Up Free</div>
+            </div>
+          </div>
+          <div class="m4-hero">
+            <div class="m4-chip">Trusted by 10,000+ Teams</div>
+            <div class="m4-h1">Manage Projects<br>With Crystal Clarity</div>
+            <div class="m4-p">The all-in-one workspace that brings teams together. Plan, track, and deliver — without the chaos.</div>
+            <div class="m4-btns">
+              <div class="m4-bp">Start Free Trial</div>
+              <div class="m4-bg">See Demo</div>
+            </div>
+          </div>
+          <div class="m4-cards">
+            <div class="m4-card"><div class="m4-card-bar"></div><div class="m4-card-t">Smart Dashboards</div><div class="m4-card-s">Real-time visibility</div></div>
+            <div class="m4-card"><div class="m4-card-bar" style="background:linear-gradient(90deg,#5ab0f0,#1a6abf);"></div><div class="m4-card-t">Team Collaboration</div><div class="m4-card-s">Built-in communication</div></div>
+            <div class="m4-card"><div class="m4-card-bar" style="background:linear-gradient(90deg,#1a6abf,#0d2d4a);"></div><div class="m4-card-t">Automations</div><div class="m4-card-s">Save hours every week</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 05 ──── -->
+    <div class="palette-section" id="palette-violet">
+      <div class="section-meta">
+        <span class="section-number">Palette 05</span>
+        <span class="section-mood">Creative · Playful · Imaginative</span>
+      </div>
+      <div class="palette-title" style="color:#ffe082;">Lemon Chiffon &amp; Ultra Violet</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#fff9c4;"></div>
+        <div class="swatch" style="background:#ffe082;"></div>
+        <div class="swatch" style="background:#7c4dff;"></div>
+        <div class="swatch" style="background:#4527a0;"></div>
+        <span class="swatch-label">EdTech · Creative tools · Events</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">luminate.studio</div>
+        </div>
+        <div class="m5">
+          <div class="m5-nav">
+            <div class="m5-logo">Luminate</div>
+            <div class="m5-links">
+              <span class="m5-link">Courses</span>
+              <span class="m5-link">Community</span>
+              <span class="m5-link">Events</span>
+              <div class="m5-btn">Join Free</div>
+            </div>
+          </div>
+          <div class="m5-hero">
+            <div class="m5-tag">Design Education Platform</div>
+            <div class="m5-h1">Learn Design.<br><em>Unlock</em> Your Potential.</div>
+            <div class="m5-p">World-class courses taught by industry leaders. Hands-on projects. A vibrant global community of creators.</div>
+            <div class="m5-btns">
+              <div class="m5-bp">Browse Courses</div>
+              <div class="m5-bg">Watch Intro</div>
+            </div>
+          </div>
+          <div class="m5-pricing">
+            <div class="m5-tier">
+              <div class="m5-tier-n">Starter</div>
+              <div class="m5-tier-p">Free</div>
+              <div class="m5-tier-s">5 courses access</div>
+            </div>
+            <div class="m5-tier active">
+              <div class="m5-tier-n">Pro</div>
+              <div class="m5-tier-p">$29</div>
+              <div class="m5-tier-s">Unlimited access</div>
+            </div>
+            <div class="m5-tier">
+              <div class="m5-tier-n">Team</div>
+              <div class="m5-tier-p">$79</div>
+              <div class="m5-tier-s">5 seats included</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 06 ──── -->
+    <div class="palette-section" id="palette-peach">
+      <div class="section-meta">
+        <span class="section-number">Palette 06</span>
+        <span class="section-mood">Soft · Refreshing · Spa-like</span>
+      </div>
+      <div class="palette-title" style="color:#7fd8d4;">Peach Ice &amp; Aqua Mist</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#ffb999;"></div>
+        <div class="swatch" style="background:#ff8a70;"></div>
+        <div class="swatch" style="background:#3aada8;"></div>
+        <div class="swatch" style="background:#7fd8d4;"></div>
+        <span class="swatch-label">Spa · Beauty · Lifestyle apps</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">serenaspa.co</div>
+        </div>
+        <div class="m6">
+          <div class="m6-nav">
+            <div class="m6-logo">Serena</div>
+            <div class="m6-links">
+              <span class="m6-link">Services</span>
+              <span class="m6-link">Memberships</span>
+              <span class="m6-link">Book</span>
+              <div class="m6-btn">Reserve Now</div>
+            </div>
+          </div>
+          <div class="m6-hero">
+            <div>
+              <div class="m6-eyebrow"><div class="m6-dot"></div><span class="m6-eyebrow-t">Wellness & Beauty</span></div>
+              <div class="m6-h1">Restore. Revive.<br>Radiate.</div>
+              <div class="m6-p">Immersive spa experiences designed to melt stress and restore your natural glow. Book your ritual today.</div>
+              <div class="m6-cta">Book a Session</div>
+            </div>
+            <div class="m6-visual">
+              <div class="m6-card">
+                <div class="m6-card-row"><span class="m6-card-t">Deep Cleanse</span><span class="m6-card-badge">Popular</span></div>
+                <div class="m6-card-s">90 min · £120</div>
+                <div class="m6-bar"><div class="m6-bar-fill" style="width:85%;"></div></div>
+              </div>
+              <div class="m6-card">
+                <div class="m6-card-row"><span class="m6-card-t">Hot Stone</span><span class="m6-card-badge">New</span></div>
+                <div class="m6-card-s">60 min · £90</div>
+                <div class="m6-bar"><div class="m6-bar-fill" style="width:60%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 07 ──── -->
+    <div class="palette-section" id="palette-cherry">
+      <div class="section-meta">
+        <span class="section-number">Palette 07</span>
+        <span class="section-mood">Energetic · Confident · Unmissable</span>
+      </div>
+      <div class="palette-title" style="color:#ffd740;">Cherry Red &amp; Butter Yellow</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#c41230;"></div>
+        <div class="swatch" style="background:#9a0e25;"></div>
+        <div class="swatch" style="background:#ffd740;"></div>
+        <div class="swatch" style="background:#ffffff;"></div>
+        <span class="swatch-label">Food & beverage · Retail · Sports</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">redline-eats.com</div>
+        </div>
+        <div class="m7">
+          <div class="m7-nav">
+            <div class="m7-logo">REDLINE</div>
+            <div class="m7-links">
+              <span class="m7-link">Menu</span>
+              <span class="m7-link">Locations</span>
+              <span class="m7-link">Catering</span>
+              <div class="m7-btn">Order Now</div>
+            </div>
+          </div>
+          <div class="m7-hero">
+            <div class="m7-h1">Bold Flavours.<br><em>Zero Compromise.</em></div>
+            <div class="m7-p">Street food with a serious soul. Sourced fresh daily, fired with passion, delivered to your door in under 30 minutes.</div>
+            <div class="m7-btns">
+              <div class="m7-bp">Order Now</div>
+              <div class="m7-bg">View Menu</div>
+            </div>
+          </div>
+          <div class="m7-bottom">
+            <div class="m7-stat"><div class="m7-stat-n">30min</div><div class="m7-stat-l">Delivery</div></div>
+            <div class="m7-stat"><div class="m7-stat-n">4.8★</div><div class="m7-stat-l">Rating</div></div>
+            <div class="m7-stat"><div class="m7-stat-n">120+</div><div class="m7-stat-l">Menu Items</div></div>
+            <div class="m7-stat"><div class="m7-stat-n">12</div><div class="m7-stat-l">Locations</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 08 ──── -->
+    <div class="palette-section" id="palette-gray">
+      <div class="section-meta">
+        <span class="section-number">Palette 08</span>
+        <span class="section-mood">Professional · Authoritative · Sleek</span>
+      </div>
+      <div class="palette-title" style="color:#8890a0;">Mist Gray &amp; Midnight Blue</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#f5f5f7;"></div>
+        <div class="swatch" style="background:#d0d4dc;"></div>
+        <div class="swatch" style="background:#3a4460;"></div>
+        <div class="swatch" style="background:#0a1628;"></div>
+        <span class="swatch-label">Finance · Legal · Consulting</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">meridian-capital.com</div>
+        </div>
+        <div class="m8">
+          <div class="m8-nav">
+            <div class="m8-logo">Meridian Capital</div>
+            <div class="m8-links">
+              <span class="m8-link">Services</span>
+              <span class="m8-link">Insights</span>
+              <span class="m8-link">About</span>
+              <div class="m8-btn">Get Advice</div>
+            </div>
+          </div>
+          <div class="m8-hero">
+            <div>
+              <div class="m8-label">Investment Strategy</div>
+              <div class="m8-h1">Grow Wealth<br>With Conviction</div>
+              <div class="m8-p">Data-driven financial planning for individuals, families, and institutions seeking long-term, sustainable growth.</div>
+              <div class="m8-btns">
+                <div class="m8-bp">Consult Now</div>
+                <div class="m8-bg">Learn More</div>
+              </div>
+            </div>
+            <div class="m8-chart">
+              <div class="m8-chart-label">Portfolio Growth</div>
+              <div class="m8-bars">
+                <div class="m8-bar" style="height:30%;"></div>
+                <div class="m8-bar" style="height:50%;"></div>
+                <div class="m8-bar" style="height:40%;"></div>
+                <div class="m8-bar" style="height:65%;"></div>
+                <div class="m8-bar" style="height:55%;"></div>
+                <div class="m8-bar highlight" style="height:88%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="m8-bottom">
+            <div class="m8-feature"><div class="m8-feat-bar"></div><div class="m8-feat-t">Portfolio Analysis</div><div class="m8-feat-s">AI-powered risk modeling</div></div>
+            <div class="m8-feature"><div class="m8-feat-bar" style="width:40px;"></div><div class="m8-feat-t">Tax Optimisation</div><div class="m8-feat-s">Maximise your returns</div></div>
+            <div class="m8-feature"><div class="m8-feat-bar" style="width:16px;"></div><div class="m8-feat-t">Estate Planning</div><div class="m8-feat-s">Generational wealth transfer</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 09 ──── -->
+    <div class="palette-section" id="palette-ivory">
+      <div class="section-meta">
+        <span class="section-number">Palette 09</span>
+        <span class="section-mood">Artisan · Earthy · Heritage</span>
+      </div>
+      <div class="palette-title" style="color:#c8b09a;">Ivory &amp; Donkey Brown</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#f9f5ee;"></div>
+        <div class="swatch" style="background:#c8b09a;"></div>
+        <div class="swatch" style="background:#7a5a3a;"></div>
+        <div class="swatch" style="background:#2a1a0e;"></div>
+        <span class="swatch-label">Artisan · Homeware · Heritage brands</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">heirloom-goods.co</div>
+        </div>
+        <div class="m9">
+          <div class="m9-nav">
+            <div class="m9-logo">Heirloom</div>
+            <div class="m9-links">
+              <span class="m9-link">Collections</span>
+              <span class="m9-link">Craft</span>
+              <span class="m9-link">Stories</span>
+              <div class="m9-btn">Shop Now</div>
+            </div>
+          </div>
+          <div class="m9-hero">
+            <div class="m9-left">
+              <div class="m9-overline">Handcrafted Goods</div>
+              <div class="m9-h1">Objects Made to<br><em>Last Lifetimes</em></div>
+              <div class="m9-p">Every piece in our collection is thoughtfully made by skilled artisans using traditional methods and natural materials.</div>
+              <div class="m9-cta">Explore Collection</div>
+            </div>
+            <div class="m9-right"></div>
+          </div>
+          <div class="m9-products">
+            <div class="m9-product"><div class="m9-product-img"></div><div class="m9-product-body"><div class="m9-product-t">Oak Side Table</div><div class="m9-product-p">£340</div></div></div>
+            <div class="m9-product"><div class="m9-product-img" style="background:linear-gradient(160deg,#b89878,#7a5a3a);"></div><div class="m9-product-body"><div class="m9-product-t">Leather Journal</div><div class="m9-product-p">£85</div></div></div>
+            <div class="m9-product"><div class="m9-product-img" style="background:linear-gradient(160deg,#c8a888,#a07858);"></div><div class="m9-product-body"><div class="m9-product-t">Ceramic Mug Set</div><div class="m9-product-p">£58</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 10 ──── -->
+    <div class="palette-section" id="palette-coral">
+      <div class="section-meta">
+        <span class="section-number">Palette 10</span>
+        <span class="section-mood">Edgy · Disruptive · Futuristic</span>
+      </div>
+      <div class="palette-title" style="color:#ff4d6d;">Neon Coral &amp; Space Black</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#ff4d6d;"></div>
+        <div class="swatch" style="background:#cc1a35;"></div>
+        <div class="swatch" style="background:#111111;"></div>
+        <div class="swatch" style="background:#222222;"></div>
+        <span class="swatch-label">Gaming · Nightlife · Cyberpunk tech</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">nexgen.gg</div>
+        </div>
+        <div class="m10">
+          <div class="m10-nav">
+            <div class="m10-logo">NEX<span>GEN</span></div>
+            <div class="m10-links">
+              <span class="m10-link">Games</span>
+              <span class="m10-link">Streams</span>
+              <span class="m10-link">Rankings</span>
+              <div class="m10-btn">Play Now</div>
+            </div>
+          </div>
+          <div class="m10-hero">
+            <div class="m10-glow"></div>
+            <div class="m10-h1">The Future of<br><em>Competitive</em> Gaming</div>
+            <div class="m10-p">Join millions of players in the next-generation esports platform. Compete, stream, and climb the leaderboards.</div>
+            <div class="m10-btns">
+              <div class="m10-bp">Enter the Arena</div>
+              <div class="m10-bg">Watch Live</div>
+            </div>
+          </div>
+          <div class="m10-grid">
+            <div class="m10-cell"><div class="m10-cell-n">2.4M</div><div class="m10-cell-l">Active Players</div></div>
+            <div class="m10-cell"><div class="m10-cell-n">$50K</div><div class="m10-cell-l">Prize Pool</div></div>
+            <div class="m10-cell"><div class="m10-cell-n">340</div><div class="m10-cell-l">Live Tournaments</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── 11 ──── -->
+    <div class="palette-section" id="palette-forest">
+      <div class="section-meta">
+        <span class="section-number">Palette 11</span>
+        <span class="section-mood">Sophisticated · Nature-meets-luxury</span>
+      </div>
+      <div class="palette-title" style="color:#dcc48c;">Deep Forest &amp; Champagne</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#142018;"></div>
+        <div class="swatch" style="background:#2a4832;"></div>
+        <div class="swatch" style="background:#dcc48c;"></div>
+        <div class="swatch" style="background:#f5edd0;"></div>
+        <span class="swatch-label">Luxury resorts · Premium real estate</span>
+      </div>
+      <div class="mockup">
+        <div class="browser-bar">
+          <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+          <div class="b-url">arborvilla.com</div>
+        </div>
+        <div class="m11">
+          <div class="m11-nav">
+            <div class="m11-logo">ARBOR VILLA</div>
+            <div class="m11-links">
+              <span class="m11-link">Residences</span>
+              <span class="m11-link">Amenities</span>
+              <span class="m11-link">Location</span>
+              <div class="m11-btn">Enquire</div>
+            </div>
+          </div>
+          <div class="m11-hero">
+            <div class="m11-eyebrow">Luxury Forest Residences</div>
+            <div class="m11-h1">Where the Forest<br><em>Becomes Home</em></div>
+            <div class="m11-p">Private luxury villas set within 40 acres of ancient forest. Bespoke architecture. Unparalleled privacy. A life reimagined.</div>
+            <div class="m11-btns">
+              <div class="m11-bp">View Residences</div>
+              <div class="m11-bg">Download Brochure</div>
+            </div>
+          </div>
+          <div class="m11-services">
+            <div class="m11-svc"><div class="m11-svc-line"></div><div class="m11-svc-t">Forest Villas</div><div class="m11-svc-s">3–6 bedroom residences</div></div>
+            <div class="m11-svc"><div class="m11-svc-line" style="width:40px;"></div><div class="m11-svc-t">Concierge</div><div class="m11-svc-s">24/7 bespoke service</div></div>
+            <div class="m11-svc"><div class="m11-svc-line" style="width:16px;"></div><div class="m11-svc-t">Wellness</div><div class="m11-svc-s">Spa, pool & fitness</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ──────────────────────────────────────────────
+       CUSTOM DESIGN STUDIO
+  ────────────────────────────────────────────── -->
+  <div id="custom-design-studio" class="palette-section cds-root" style="border-bottom:none; padding:72px 32px 100px;">
+
+    <!-- Studio Header -->
+    <div class="cds-studio-header">
+      <div class="cds-studio-eyebrow">Interactive Tool</div>
+      <div class="cds-studio-title">Custom Design <em>Studio</em></div>
+      <div class="cds-studio-sub">Build your palette · Preview live UI · Generate brand assets</div>
+      <div class="cds-studio-pills">
+        <div class="cds-studio-pill">50+ Curated Palettes</div>
+        <div class="cds-studio-pill">Live UI Preview</div>
+        <div class="cds-studio-pill">Brand Kit Generator</div>
+        <div class="cds-studio-pill">CSS Export</div>
+        <div class="cds-studio-pill">Glassmorphism / Neumorphism</div>
+      </div>
+    </div>
+
+    <div class="cds-layout">
+
+      <!-- ── LEFT: CONTROLS PANEL ── -->
+      <div class="cds-panel">
+
+        <!-- Predefined Palettes -->
+        <div class="cds-section-label">Predefined Palettes <span class="cds-badge">50+</span></div>
+        <div class="cds-filter-row">
+          <div class="cds-filter-pill active" onclick="filterPalettes('all',this)">All</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('luxury',this)">Luxury</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('minimal',this)">Minimal</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('bold',this)">Bold</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('pastel',this)">Pastel</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('corporate',this)">Corporate</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('neon',this)">Neon</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('earthy',this)">Earthy</div>
+          <div class="cds-filter-pill" onclick="filterPalettes('futuristic',this)">Futuristic</div>
+        </div>
+        <div class="cds-palette-grid" id="paletteGrid"></div>
+
+        <!-- Divider -->
+        <div class="cds-divider"></div>
+
+        <!-- Color Controls -->
+        <div class="cds-section-label">Custom Colors</div>
+        <div class="cds-color-grid">
+          <div class="cds-color-item">
+            <label>Primary</label>
+            <div class="cds-color-row">
+              <input type="color" id="c-primary" value="#c9a25a" oninput="applyColors()">
+              <span class="cds-hex" id="h-primary">#c9a25a</span>
+            </div>
+          </div>
+          <div class="cds-color-item">
+            <label>Secondary</label>
+            <div class="cds-color-row">
+              <input type="color" id="c-secondary" value="#7c4dff" oninput="applyColors()">
+              <span class="cds-hex" id="h-secondary">#7c4dff</span>
+            </div>
+          </div>
+          <div class="cds-color-item">
+            <label>Accent</label>
+            <div class="cds-color-row">
+              <input type="color" id="c-accent" value="#ff4d6d" oninput="applyColors()">
+              <span class="cds-hex" id="h-accent">#ff4d6d</span>
+            </div>
+          </div>
+          <div class="cds-color-item">
+            <label>Background</label>
+            <div class="cds-color-row">
+              <input type="color" id="c-bg" value="#0a0a0a" oninput="applyColors()">
+              <span class="cds-hex" id="h-bg">#0a0a0a</span>
+            </div>
+          </div>
+          <div class="cds-color-item">
+            <label>Surface</label>
+            <div class="cds-color-row">
+              <input type="color" id="c-surface" value="#141414" oninput="applyColors()">
+              <span class="cds-hex" id="h-surface">#141414</span>
+            </div>
+          </div>
+          <div class="cds-color-item">
+            <label>Text</label>
+            <div class="cds-color-row">
+              <input type="color" id="c-text" value="#f5e8d0" oninput="applyColors()">
+              <span class="cds-hex" id="h-text">#f5e8d0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cds-divider"></div>
+
+        <!-- Style Controls -->
+        <div class="cds-section-label">Style Controls</div>
+        <div class="cds-controls-grid">
+
+          <div class="cds-ctrl">
+            <label>UI Style</label>
+            <select id="uiStyle" onchange="applyColors()">
+              <option value="modern">Modern</option>
+              <option value="luxury">Luxury</option>
+              <option value="tech">Tech</option>
+              <option value="playful">Playful</option>
+            </select>
+          </div>
+
+          <div class="cds-ctrl">
+            <label>Button Style</label>
+            <select id="btnStyle" onchange="applyColors()">
+              <option value="rounded">Rounded</option>
+              <option value="pill">Pill</option>
+              <option value="sharp">Sharp</option>
+              <option value="outline">Outline</option>
+            </select>
+          </div>
+
+          <div class="cds-ctrl">
+            <label>Typography</label>
+            <select id="fontStyle" onchange="applyColors()">
+              <option value="dm">DM Sans (Modern)</option>
+              <option value="playfair">Playfair (Serif)</option>
+              <option value="cormorant">Cormorant (Editorial)</option>
+              <option value="mono">Monospace (Tech)</option>
+            </select>
+          </div>
+
+          <div class="cds-ctrl">
+            <label>Panel Effect</label>
+            <select id="panelEffect" onchange="applyColors()">
+              <option value="glass">Glassmorphism</option>
+              <option value="neumorphic">Neumorphism</option>
+              <option value="flat">Flat</option>
+              <option value="frosted">Frosted</option>
+            </select>
+          </div>
+
+          <div class="cds-ctrl" style="grid-column:1/-1;">
+            <label>Theme</label>
+            <div class="cds-toggle-row">
+              <button class="cds-toggle" id="btn-dark" onclick="setTheme('dark')">◐ Dark</button>
+              <button class="cds-toggle active" id="btn-light" onclick="setTheme('light')">○ Light</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cds-divider"></div>
+
+        <!-- Export Row -->
+        <div class="cds-export-row">
+          <button class="cds-export-btn" onclick="exportCSS()">Export CSS</button>
+          <button class="cds-export-btn ghost" onclick="copyPalette()">Copy Palette</button>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: PREVIEW PANEL ── -->
+      <div class="cds-preview-col">
+
+        <!-- Tabs -->
+        <div class="cds-tabs">
+          <div class="cds-tab active" onclick="switchTab('website',this)">Website Preview</div>
+          <div class="cds-tab" onclick="switchTab('brandkit',this)">Brand Kit</div>
+        </div>
+
+        <!-- Website Preview -->
+        <div id="tab-website" class="cds-tab-content">
+          <div class="mockup cds-live-mockup">
+            <div class="browser-bar" style="background:rgba(0,0,0,0.5);">
+              <div class="b-dot b-red"></div><div class="b-dot b-yellow"></div><div class="b-dot b-green"></div>
+              <div class="b-url" id="previewUrl">yoursite.com</div>
+            </div>
+            <!-- Live Preview UI -->
+            <div id="livePreview" class="live-ui">
+              <div class="lui-nav" id="luiNav">
+                <div class="lui-logo" id="luiLogo">YourBrand</div>
+                <div class="lui-links">
+                  <span class="lui-link">About</span>
+                  <span class="lui-link">Services</span>
+                  <span class="lui-link">Work</span>
+                  <div class="lui-btn" id="luiBtn">Get Started</div>
+                </div>
+              </div>
+              <div class="lui-hero" id="luiHero">
+                <div class="lui-eyebrow" id="luiEyebrow">Premium Design Agency</div>
+                <div class="lui-h1" id="luiH1">Where Ideas<br>Become <em id="luiEm">Reality</em></div>
+                <div class="lui-p" id="luiP">We craft digital identities that captivate, convert, and inspire. Your brand deserves more than ordinary.</div>
+                <div class="lui-btns">
+                  <div class="lui-bp" id="luiBp">Start Project</div>
+                  <div class="lui-bg" id="luiBg">See Our Work</div>
+                </div>
+              </div>
+              <div class="lui-cards" id="luiCards">
+                <div class="lui-card" id="luiCard1">
+                  <div class="lui-card-icon" id="luiCardIcon1"><div class="lui-ci-dot" id="luiCiDot1"></div></div>
+                  <div class="lui-card-t">Brand Strategy</div>
+                  <div class="lui-card-s" id="luiCardS1">Positioning & visual identity systems built for growth.</div>
+                </div>
+                <div class="lui-card" id="luiCard2">
+                  <div class="lui-card-icon" id="luiCardIcon2"><div class="lui-ci-dot" id="luiCiDot2"></div></div>
+                  <div class="lui-card-t">UI/UX Design</div>
+                  <div class="lui-card-s" id="luiCardS2">Interfaces that delight and convert on every device.</div>
+                </div>
+                <div class="lui-card" id="luiCard3">
+                  <div class="lui-card-icon" id="luiCardIcon3"><div class="lui-ci-dot" id="luiCiDot3"></div></div>
+                  <div class="lui-card-t">Development</div>
+                  <div class="lui-card-s" id="luiCardS3">Pixel-perfect builds, blazing fast, rock solid.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Palette Strip -->
+          <div class="cds-live-strip" id="livePaletteStrip">
+            <div class="cds-strip-swatch" id="strip0"></div>
+            <div class="cds-strip-swatch" id="strip1"></div>
+            <div class="cds-strip-swatch" id="strip2"></div>
+            <div class="cds-strip-swatch" id="strip3"></div>
+            <div class="cds-strip-swatch" id="strip4"></div>
+            <div class="cds-strip-label" id="stripLabel">Active Palette</div>
+          </div>
+        </div>
+
+        <!-- Brand Kit -->
+        <div id="tab-brandkit" class="cds-tab-content" style="display:none;">
+
+          <div class="cds-brandkit-header">
+            <div>
+              <div class="cds-brandkit-title">Brand Identity Kit</div>
+              <div class="cds-brandkit-desc">All assets update live with your chosen palette</div>
+            </div>
+            <div class="cds-brandkit-download" onclick="toast('Brand Kit export coming soon!')">↓ Export Kit</div>
+          </div>
+
+          <div class="cds-brandkit-grid">
+
+            <!-- Visiting Card Front -->
+            <div class="cds-mock-wrap">
+              <div class="cds-mock-label">Visiting Card · Front</div>
+              <div class="brand-card-front" id="brandCardFront">
+                <div class="bc-logo" id="bcLogo">YB</div>
+                <div class="bc-name" id="bcName">Alexandra Chen</div>
+                <div class="bc-title" id="bcTitle">Creative Director</div>
+                <div class="bc-divider" id="bcDivider"></div>
+                <div class="bc-company" id="bcCompany">YourBrand Studio</div>
+              </div>
+            </div>
+
+            <!-- Visiting Card Back -->
+            <div class="cds-mock-wrap">
+              <div class="cds-mock-label">Visiting Card · Back</div>
+              <div class="brand-card-back" id="brandCardBack">
+                <div class="bcb-pattern" id="bcbPattern"></div>
+                <div class="bcb-contact">
+                  <div class="bcb-line" id="bcbLine1">✉ hello@yourbrand.studio</div>
+                  <div class="bcb-line" id="bcbLine2">☎ +91 98765 43210</div>
+                  <div class="bcb-line" id="bcbLine3">⊕ yourbrand.studio</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Letterhead -->
+            <div class="cds-mock-wrap cds-mock-wide">
+              <div class="cds-mock-label">Letterhead</div>
+              <div class="brand-letterhead" id="brandLetterhead">
+                <div class="lh-header" id="lhHeader">
+                  <div class="lh-logo-area">
+                    <div class="lh-logo-mark" id="lhLogoMark">YB</div>
+                    <div>
+                      <div class="lh-brand-name" id="lhBrandName">YourBrand Studio</div>
+                      <div class="lh-brand-tagline" id="lhBrandTagline">Creative Design Agency</div>
+                    </div>
+                  </div>
+                  <div class="lh-contact-row" id="lhContactRow">hello@yourbrand.studio · +91 98765 43210</div>
+                </div>
+                <div class="lh-accent-bar" id="lhAccentBar"></div>
+                <div class="lh-body" id="lhBody">
+                  <div class="lh-date" id="lhDate">25 April 2025</div>
+                  <div class="lh-to" id="lhTo">Dear Valued Client,</div>
+                  <div class="lh-lines">
+                    <div class="lh-line" id="lhLine1"></div>
+                    <div class="lh-line" id="lhLine2" style="width:88%;"></div>
+                    <div class="lh-line" id="lhLine3" style="width:72%;"></div>
+                  </div>
+                  <div class="lh-sig">
+                    <div class="lh-sig-name" id="lhSigName">Alexandra Chen</div>
+                    <div class="lh-sig-title" id="lhSigTitle">Creative Director</div>
+                  </div>
+                </div>
+                <div class="lh-footer" id="lhFooter">
+                  <div class="lh-footer-bar" id="lhFooterBar"></div>
+                  <div class="lh-footer-text" id="lhFooterText">yourbrand.studio · hello@yourbrand.studio · Coimbatore, Tamil Nadu</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instagram Post -->
+            <div class="cds-mock-wrap">
+              <div class="cds-mock-label">Instagram Post</div>
+              <div class="brand-ig" id="brandIG">
+                <div class="ig-bg" id="igBg"></div>
+                <div class="ig-content">
+                  <div class="ig-logo" id="igLogo">YB</div>
+                  <div class="ig-quote" id="igQuote">"Design is<br>not decoration,<br>it is communication."</div>
+                  <div class="ig-brand" id="igBrand">@yourbrand.studio</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- LinkedIn Banner -->
+            <div class="cds-mock-wrap">
+              <div class="cds-mock-label">LinkedIn Banner</div>
+              <div class="brand-linkedin" id="brandLinkedin">
+                <div class="li-bg" id="liBg"></div>
+                <div class="li-content">
+                  <div class="li-tagline" id="liTagline">Crafting Digital Identities Since 2020</div>
+                  <div class="li-name" id="liName">YourBrand Studio</div>
+                  <div class="li-pills">
+                    <div class="li-pill" id="liPill1">UI/UX Design</div>
+                    <div class="li-pill" id="liPill2">Branding</div>
+                    <div class="li-pill" id="liPill3">Development</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- YouTube Thumbnail -->
+            <div class="cds-mock-wrap cds-mock-wide">
+              <div class="cds-mock-label">YouTube Thumbnail</div>
+              <div class="brand-youtube" id="brandYoutube">
+                <div class="yt-bg" id="ytBg"></div>
+                <div class="yt-brand-bar" id="ytBrandBar"></div>
+                <div class="yt-content">
+                  <div class="yt-logo" id="ytLogo">YourBrand Studio</div>
+                  <div class="yt-title" id="ytTitle">How We Built a<br>Brand in 7 Days</div>
+                  <div class="yt-meta" id="ytMeta">Design · Strategy · Identity</div>
+                </div>
+                <div class="yt-play" id="ytPlay">▶</div>
+              </div>
+            </div>
+
+            <!-- Facebook Cover -->
+            <div class="cds-mock-wrap cds-mock-wide">
+              <div class="cds-mock-label">Facebook Cover Photo</div>
+              <div class="brand-facebook" id="brandFacebook">
+                <div class="fb-bg" id="fbBg"></div>
+                <div class="fb-accent-circle" id="fbAccentCircle"></div>
+                <div class="fb-content">
+                  <div class="fb-eyebrow" id="fbEyebrow">Creative Design Agency · Coimbatore</div>
+                  <div class="fb-title" id="fbTitle">YourBrand Studio</div>
+                  <div class="fb-sub" id="fbSub">Where great brands are born</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Envelope -->
+            <div class="cds-mock-wrap">
+              <div class="cds-mock-label">Envelope</div>
+              <div class="brand-envelope" id="brandEnvelope">
+                <div class="env-flap" id="envFlap"></div>
+                <div class="env-logo" id="envLogo">YourBrand Studio</div>
+                <div class="env-address" id="envAddress">Alexandra Chen<br>Creative Director<br>Coimbatore, Tamil Nadu</div>
+                <div class="env-seal" id="envSeal">YB</div>
+              </div>
+            </div>
+
+            <!-- Invoice Header -->
+            <div class="cds-mock-wrap">
+              <div class="cds-mock-label">Invoice Header</div>
+              <div class="brand-invoice" id="brandInvoice">
+                <div class="inv-header" id="invHeader">
+                  <div>
+                    <div class="inv-logo" id="invLogo">YB</div>
+                    <div class="inv-company" id="invCompany">YourBrand Studio</div>
+                  </div>
+                  <div class="inv-right">
+                    <div class="inv-label" id="invLabel">INVOICE</div>
+                    <div class="inv-number" id="invNumber">#INV-2025-047</div>
+                  </div>
+                </div>
+                <div class="inv-bar" id="invBar"></div>
+                <div class="inv-meta" id="invMeta">
+                  <div class="inv-meta-item"><span class="inv-meta-key" id="invKey1">Date</span><span class="inv-meta-val" id="invVal1">25 Apr 2025</span></div>
+                  <div class="inv-meta-item"><span class="inv-meta-key" id="invKey2">Due</span><span class="inv-meta-val" id="invVal2">10 May 2025</span></div>
+                  <div class="inv-meta-item"><span class="inv-meta-key" id="invKey3">Amount</span><span class="inv-meta-val" id="invVal3">₹45,000</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="brochure-footer">
+    <div class="footer-logo">JK ClickCraft</div>
+    <div class="footer-tagline">Crafting Digital Identities · 2026</div>
+  </div>
+  
+  <!-- Floating Up Arrow Button -->
+  <div class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CUSTOM DESIGN STUDIO — STYLES & SCRIPTS
+═══════════════════════════════════════════════════ -->
+<style>
+
+/* ── CDS Section Header Enhancement ── */
+.cds-studio-header {
+  text-align: center;
+  margin-bottom: 52px;
+  position: relative;
+}
+.cds-studio-header::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(74,123,255,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cds-studio-eyebrow {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #4A7BFF;
+  opacity: 0.8;
+  margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.cds-studio-eyebrow::before, .cds-studio-eyebrow::after {
+  content: ''; display: block; width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74,123,255,0.4));
+}
+.cds-studio-eyebrow::after { transform: scaleX(-1); }
+.cds-studio-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #1F2A37;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.cds-studio-title em { color: #4A7BFF; font-style: normal; }
+.cds-studio-sub {
+  font-size: 12px;
+  color: #6B7280;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.cds-studio-pills {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; margin-top: 20px; flex-wrap: wrap;
+}
+.cds-studio-pill {
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 100px;
+  border: 1px solid #C5CCD6;
+  color: #6B7280; background: #F5F7FB;
+  box-shadow: 2px 2px 5px #C5CCD6, -2px -2px 5px #FFFFFF;
+}
+
+/* ── Root & Layout ── */
+.cds-root {
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+}
+.cds-root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 40% at 20% 80%, rgba(74,123,255,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(111,164,255,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cds-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 32px;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* ── Controls Panel ── */
+.cds-panel {
+  background: #EEF2F7;
+  border: 1px solid #E6ECF5;
+  border-radius: 20px;
+  padding: 28px;
+  position: sticky;
+  top: 24px;
+  box-shadow: 8px 8px 20px #C5CCD6, -8px -8px 20px #FFFFFF;
+}
+
+/* Neumorphic inner glow on panel */
+.cds-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 120px;
+  border-radius: 20px 20px 0 0;
+  background: linear-gradient(180deg, rgba(74,123,255,0.04) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.cds-section-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #6B7280;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cds-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #C5CCD6 0%, transparent 100%);
+}
+.cds-badge {
+  background: rgba(74,123,255,0.1);
+  color: #4A7BFF;
+  border: 1px solid rgba(74,123,255,0.25);
+  font-size: 8px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+}
+.cds-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C5CCD6 30%, #C5CCD6 70%, transparent);
+  margin: 20px 0;
+}
+
+/* Filter pills */
+.cds-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+.cds-filter-pill {
+  font-size: 9px;
+  padding: 4px 11px;
+  border-radius: 100px;
+  border: 1px solid #C5CCD6;
+  color: #6B7280;
+  cursor: pointer;
+  transition: all 0.22s;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: #EEF2F7;
+  box-shadow: 2px 2px 5px #C5CCD6, -2px -2px 5px #FFFFFF;
+}
+.cds-filter-pill:hover {
+  border-color: #6FA4FF;
+  color: #4A7BFF;
+  background: #F5F7FB;
+}
+.cds-filter-pill.active {
+  border-color: #4A7BFF;
+  color: #4A7BFF;
+  background: rgba(74,123,255,0.08);
+  box-shadow: inset 2px 2px 5px rgba(74,123,255,0.15), inset -2px -2px 5px #FFFFFF;
+}
+
+/* Palette Grid */
+.cds-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.cds-palette-grid::-webkit-scrollbar { width: 3px; }
+.cds-palette-grid::-webkit-scrollbar-track { background: #E6ECF5; border-radius: 2px; }
+.cds-palette-grid::-webkit-scrollbar-thumb { background: #6FA4FF; border-radius: 2px; }
+
+.cds-plt-item {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+  aspect-ratio: 1;
+  position: relative;
+}
+.cds-plt-item:hover {
+  border-color: #6FA4FF;
+  transform: scale(1.08) translateY(-1px);
+  box-shadow: 0 8px 20px rgba(74,123,255,0.2);
+}
+.cds-plt-item.active {
+  border-color: #4A7BFF;
+  box-shadow: 0 0 0 3px rgba(74,123,255,0.2), 0 8px 20px rgba(74,123,255,0.15);
+  transform: scale(1.05);
+}
+.cds-plt-swatches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+.cds-plt-swatch { flex: 1; }
+.cds-plt-name {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  font-size: 7px;
+  padding: 3px 4px;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Color Controls */
+.cds-color-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cds-color-item label {
+  display: block;
+  font-size: 8px;
+  color: #6B7280;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.cds-color-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F5F7FB;
+  border: 1px solid #C5CCD6;
+  border-radius: 10px;
+  padding: 4px 10px 4px 4px;
+  transition: border-color 0.2s;
+  box-shadow: inset 2px 2px 5px #C5CCD6, inset -2px -2px 5px #FFFFFF;
+}
+.cds-color-row:hover { border-color: #6FA4FF; }
+.cds-color-row input[type="color"] {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid #C5CCD6;
+  background: none;
+  cursor: pointer;
+  padding: 2px;
+  flex-shrink: 0;
+}
+.cds-hex {
+  font-size: 9px;
+  color: #6B7280;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+/* Style Controls */
+.cds-controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.cds-ctrl label {
+  display: block;
+  font-size: 8px;
+  color: #6B7280;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.cds-ctrl select {
+  width: 100%;
+  background: #F5F7FB;
+  border: 1px solid #C5CCD6;
+  color: #1F2A37;
+  font-size: 11px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236B7280'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+  box-shadow: inset 2px 2px 5px #C5CCD6, inset -2px -2px 5px #FFFFFF;
+}
+.cds-ctrl select:focus {
+  border-color: #4A7BFF;
+  background-color: #EEF2F7;
+}
+.cds-ctrl select option { background: #EEF2F7; color: #1F2A37; }
+.cds-toggle-row { display: flex; gap: 6px; }
+.cds-toggle {
+  flex: 1;
+  padding: 9px 8px;
+  border-radius: 10px;
+  border: 1px solid #C5CCD6;
+  background: #EEF2F7;
+  color: #6B7280;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.22s;
+  letter-spacing: 0.3px;
+  box-shadow: 3px 3px 8px #C5CCD6, -3px -3px 8px #FFFFFF;
+}
+.cds-toggle:hover { background: #F5F7FB; color: #1F2A37; }
+.cds-toggle.active {
+  background: rgba(74,123,255,0.08);
+  border-color: #4A7BFF;
+  color: #4A7BFF;
+  box-shadow: inset 2px 2px 5px rgba(74,123,255,0.15), inset -2px -2px 5px #FFFFFF;
+}
+
+/* Export */
+.cds-export-row { display: flex; gap: 8px; }
+.cds-export-btn {
+  flex: 1;
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #4A7BFF 0%, #6FA4FF 100%);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.22s;
+  box-shadow: 4px 4px 12px rgba(74,123,255,0.3), -2px -2px 8px #FFFFFF;
+}
+.cds-export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 18px rgba(74,123,255,0.4), -2px -2px 8px #FFFFFF;
+}
+.cds-export-btn.ghost {
+  background: #EEF2F7;
+  border: 1px solid #4A7BFF;
+  color: #4A7BFF;
+  box-shadow: 3px 3px 8px #C5CCD6, -3px -3px 8px #FFFFFF;
+}
+.cds-export-btn.ghost:hover {
+  background: rgba(74,123,255,0.06);
+  box-shadow: 4px 4px 12px #C5CCD6, -4px -4px 12px #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ── Preview Column ── */
+.cds-preview-col { min-width: 0; }
+
+/* Tabs */
+.cds-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  border-radius: 12px 12px 0 0;
+  padding: 4px 4px 0;
+  border: 1px solid #C5CCD6;
+  border-bottom-color: transparent;
+  background: #E3E8F0;
+  box-shadow: 3px 3px 8px #C5CCD6, -3px -3px 8px #FFFFFF;
+}
+.cds-tab {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6B7280;
+  padding: 11px 22px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+.cds-tab:hover { color: #1F2A37; background: rgba(74,123,255,0.04); }
+.cds-tab.active {
+  color: #4A7BFF;
+  border-bottom-color: #4A7BFF;
+  background: rgba(74,123,255,0.06);
+}
+
+/* Live Mockup */
+.cds-live-mockup {
+  width: 100%;
+  transition: all 0.4s ease;
+}
+
+/* Live Preview UI */
+.live-ui {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 320px;
+}
+.lui-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.lui-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  transition: color 0.3s;
+  letter-spacing: -0.3px;
+}
+.lui-links { display: flex; gap: 18px; align-items: center; }
+.lui-link { font-size: 11px; transition: color 0.3s; letter-spacing: 0.3px; }
+.lui-btn {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.lui-hero {
+  padding: 44px 24px 36px;
+  transition: background 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+.lui-eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+.lui-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  transition: color 0.3s;
+}
+.lui-h1 em { font-style: normal; transition: color 0.3s; }
+.lui-p {
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 380px;
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+.lui-btns { display: flex; gap: 12px; }
+.lui-bp {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.lui-bg {
+  font-size: 11px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.lui-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 22px 24px;
+  transition: background 0.35s;
+}
+.lui-card {
+  border-radius: 10px;
+  padding: 18px;
+  transition: all 0.35s;
+}
+.lui-card-icon {
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s;
+}
+.lui-ci-dot { width: 9px; height: 9px; border-radius: 50%; transition: background 0.3s; }
+.lui-card-t { font-size: 12px; font-weight: 600; margin-bottom: 5px; transition: color 0.3s; }
+.lui-card-s { font-size: 10px; line-height: 1.6; transition: color 0.3s; }
+
+/* Live Strip */
+.cds-live-strip {
+  display: flex;
+  gap: 0;
+  margin-top: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 36px;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  position: relative;
+}
+.cds-strip-swatch { flex: 1; height: 100%; transition: background 0.35s; }
+.cds-strip-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6B7280;
+  padding: 0 14px;
+  background: #E3E8F0;
+  white-space: nowrap;
+  border-left: 1px solid #C5CCD6;
+}
+
+/* ── Brand Kit ── */
+.cds-brandkit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.cds-mock-wide { grid-column: 1 / -1; }
+.cds-mock-wrap {
+  animation: fadeSlideIn 0.4s ease both;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cds-mock-label {
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #6B7280;
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.cds-mock-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #C5CCD6;
+}
+
+/* Visiting Card */
+.brand-card-front, .brand-card-back {
+  border-radius: 12px;
+  padding: 22px;
+  height: 140px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+}
+.bc-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  transition: color 0.3s;
+}
+.bc-name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  transition: color 0.3s;
+}
+.bc-title {
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+.bc-divider {
+  height: 1px;
+  width: 32px;
+  margin-bottom: 8px;
+  transition: background 0.3s;
+}
+.bc-company {
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.brand-card-back { display: flex; flex-direction: column; justify-content: flex-end; }
+.bcb-pattern {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  transition: background 0.3s;
+}
+.bcb-contact { position: relative; z-index: 1; }
+.bcb-line {
+  font-size: 10px;
+  margin-bottom: 3px;
+  opacity: 0.7;
+  transition: color 0.3s;
+}
+
+/* Letterhead */
+.brand-letterhead {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  transition: all 0.3s;
+}
+.lh-header {
+  padding: 14px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+.lh-logo-area { display: flex; align-items: center; gap: 10px; }
+.lh-logo-mark {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px;
+  transition: all 0.3s;
+}
+.lh-brand-name { font-size: 13px; font-weight: 600; transition: color 0.3s; }
+.lh-brand-tagline { font-size: 9px; opacity: 0.5; transition: color 0.3s; }
+.lh-contact-row { font-size: 9px; opacity: 0.5; transition: color 0.3s; }
+.lh-accent-bar { height: 3px; transition: background 0.3s; }
+.lh-body { padding: 16px 20px; transition: background 0.3s; }
+.lh-date { font-size: 9px; opacity: 0.4; margin-bottom: 8px; transition: color 0.3s; }
+.lh-to { font-size: 11px; font-weight: 500; margin-bottom: 12px; transition: color 0.3s; }
+.lh-lines { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.lh-line { height: 6px; border-radius: 3px; width: 100%; transition: background 0.3s; }
+.lh-sig-name { font-size: 12px; font-weight: 600; transition: color 0.3s; }
+.lh-sig-title { font-size: 9px; opacity: 0.5; transition: color 0.3s; }
+.lh-footer { transition: background 0.3s; }
+.lh-footer-bar { height: 3px; transition: background 0.3s; }
+.lh-footer-text { font-size: 8px; opacity: 0.35; padding: 6px 20px; transition: color 0.3s; }
+
+/* Instagram */
+.brand-ig {
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.ig-bg {
+  position: absolute;
+  inset: 0;
+  transition: background 0.3s;
+}
+.ig-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.ig-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  transition: color 0.3s;
+}
+.ig-quote {
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.9;
+  transition: color 0.3s;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+}
+.ig-brand {
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.5;
+  margin-top: 14px;
+  transition: color 0.3s;
+}
+
+/* LinkedIn */
+.brand-linkedin {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.li-bg { position: absolute; inset: 0; transition: background 0.3s; }
+.li-content {
+  position: relative; z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 24px;
+}
+.li-tagline { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-bottom: 4px; transition: color 0.3s; }
+.li-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; transition: color 0.3s; }
+.li-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.li-pill { font-size: 9px; padding: 3px 10px; border-radius: 100px; border: 1px solid; letter-spacing: 0.5px; transition: all 0.3s; }
+
+/* Envelope */
+.brand-envelope {
+  border-radius: 12px;
+  padding: 20px;
+  height: 140px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.35s;
+}
+.env-flap {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 55px;
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+  transition: background 0.3s;
+}
+.env-logo { font-size: 10px; font-weight: 600; letter-spacing: 1px; opacity: 0.5; margin-bottom: 4px; transition: color 0.3s; }
+.env-address { font-size: 10px; line-height: 1.6; opacity: 0.7; transition: color 0.3s; }
+.env-seal {
+  position: absolute;
+  top: 10px; right: 20px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* YouTube Thumbnail */
+.brand-youtube {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+}
+.yt-bg { position: absolute; inset: 0; transition: background 0.35s; }
+.yt-content {
+  position: relative; z-index: 1;
+  height: 100%; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 16px;
+}
+.yt-brand-bar {
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  transition: background 0.35s;
+}
+.yt-logo { font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-bottom: auto; padding-top: 16px; transition: color 0.35s; }
+.yt-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 700; line-height: 1.2;
+  margin-bottom: 6px; transition: color 0.35s;
+}
+.yt-meta { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.5; transition: color 0.35s; }
+.yt-play {
+  position: absolute; top: 50%; right: 20px; transform: translateY(-50%);
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; transition: all 0.35s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* Facebook Cover */
+.brand-facebook {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 2.7/1;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+}
+.fb-bg { position: absolute; inset: 0; transition: background 0.35s; }
+.fb-content {
+  position: relative; z-index: 1;
+  height: 100%; display: flex; flex-direction: column; justify-content: center;
+  padding: 0 28px;
+}
+.fb-eyebrow { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5; margin-bottom: 6px; transition: color 0.35s; }
+.fb-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; transition: color 0.35s; }
+.fb-sub { font-size: 10px; opacity: 0.55; margin-top: 4px; transition: color 0.35s; }
+.fb-accent-circle {
+  position: absolute; right: -30px; top: 50%; transform: translateY(-50%);
+  width: 140px; height: 140px; border-radius: 50%; opacity: 0.15;
+  transition: background 0.35s;
+}
+
+/* Brand Kit Header */
+.cds-brandkit-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cds-brandkit-title {
+  font-size: 12px; font-weight: 600; color: #888;
+  letter-spacing: 0.5px;
+}
+.cds-brandkit-desc {
+  font-size: 10px; color: #333; letter-spacing: 0.3px; margin-top: 2px;
+}
+.cds-brandkit-download {
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 100px;
+  border: 1px solid rgba(201,162,90,0.25); color: #c9a25a;
+  cursor: pointer; transition: all 0.2s;
+}
+.cds-brandkit-download:hover {
+  background: rgba(201,162,90,0.08); border-color: rgba(201,162,90,0.5);
+}
+
+/* Invoice */
+.brand-invoice {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  transition: all 0.35s;
+}
+.inv-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px;
+  transition: background 0.35s, color 0.35s;
+}
+.inv-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700; transition: color 0.35s;
+}
+.inv-company { font-size: 9px; letter-spacing: 1px; opacity: 0.5; margin-top: 2px; transition: color 0.35s; }
+.inv-right { text-align: right; }
+.inv-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; transition: color 0.35s; }
+.inv-number { font-size: 14px; font-weight: 700; margin-top: 2px; transition: color 0.35s; }
+.inv-bar { height: 3px; transition: background 0.35s; }
+.inv-meta {
+  display: flex; gap: 0;
+  transition: background 0.35s;
+}
+.inv-meta-item {
+  flex: 1; padding: 12px 20px;
+  display: flex; flex-direction: column; gap: 3px;
+  border-right: 1px solid rgba(255,255,255,0.04);
+}
+.inv-meta-item:last-child { border-right: none; }
+.inv-meta-key { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.35; transition: color 0.35s; }
+.inv-meta-val { font-size: 13px; font-weight: 600; transition: color 0.35s; }
+
+
+.cds-toast {
+  position: fixed;
+  bottom: 36px; right: 36px;
+  background: rgba(12,10,8,0.9);
+  border: 1px solid rgba(201,162,90,0.35);
+  color: #c9a25a;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  animation: toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+@keyframes toastIn { from { opacity:0; transform:translateY(16px) scale(0.95); } to { opacity:1; transform:translateY(0) scale(1); } }
+
+@media (max-width: 1000px) {
+  .cds-layout { grid-template-columns: 1fr; }
+  .cds-panel { position: static; }
+  .cds-brandkit-grid { grid-template-columns: 1fr; }
+  .cds-mock-wide { grid-column: 1; }
+}
+</style>
+<link rel="stylesheet" href="mobile-responsive.css" />
+
+<script>
+// ═══════════════════════════════
+//  PALETTE LIBRARY — 52 PALETTES
+// ═══════════════════════════════
+const PALETTES = [
+  // NEUMORPHIC BLUE (default)
+  { name:'Blue Neumorphic', cat:'minimal', c:['#4A7BFF','#6FA4FF','#EEF2F7','#1F2A37','#F5F7FB'] },
+  // LUXURY
+  { name:'Royal Gold', cat:'luxury', c:['#c9a25a','#8c6a28','#14060d','#f5e8d0','#1a0810'] },
+  { name:'Obsidian Pearl', cat:'luxury', c:['#d4c5a9','#9a8870','#0d0d0d','#f8f4ee','#1a1814'] },
+  { name:'Deep Plum', cat:'luxury', c:['#8b4b7a','#5a2050','#1a0020','#f0d8e8','#12000e'] },
+  { name:'Cognac & Ivory', cat:'luxury', c:['#b5773a','#7a4818','#1c1208','#f9f0e4','#110b04'] },
+  { name:'Jade Emperor', cat:'luxury', c:['#3a7a6a','#1a5040','#061410','#ddf0e8','#081a14'] },
+  { name:'Noir & Bronze', cat:'luxury', c:['#b08040','#785820','#0a0804','#f4ece0','#0e0c08'] },
+  // MINIMAL
+  { name:'Pure White', cat:'minimal', c:['#1a1a1a','#888888','#ffffff','#f5f5f5','#eeeeee'] },
+  { name:'Warm Ivory', cat:'minimal', c:['#2d2a26','#8a8070','#faf7f0','#f2ede4','#e8e0d4'] },
+  { name:'Slate Mono', cat:'minimal', c:['#3a4050','#8898b0','#f5f7fa','#edf0f5','#e0e5ef'] },
+  { name:'Paper & Ink', cat:'minimal', c:['#2c2c2c','#666666','#fefefe','#f8f8f8','#ebebeb'] },
+  { name:'Stone Gray', cat:'minimal', c:['#4a4a4a','#aaaaaa','#f8f8f6','#f0f0ee','#e4e4e2'] },
+  { name:'Linen', cat:'minimal', c:['#3a3028','#9a8878','#fdf8f0','#f5ede0','#e8dfd0'] },
+  // BOLD
+  { name:'Pumpkin Fire', cat:'bold', c:['#e8682a','#b04010','#1c1c1c','#fff8f0','#282828'] },
+  { name:'Cherry Red', cat:'bold', c:['#c41230','#8b0020','#0d0404','#fff0f2','#1a0808'] },
+  { name:'Electric Blue', cat:'bold', c:['#0066ff','#0044cc','#000a1a','#e8f0ff','#001028'] },
+  { name:'Power Purple', cat:'bold', c:['#7c00ff','#5500cc','#0a0014','#f0e4ff','#100018'] },
+  { name:'Viva Magenta', cat:'bold', c:['#bb2649','#880030','#120008','#ffe8ef','#180008'] },
+  { name:'Jet Black', cat:'bold', c:['#ff5500','#cc3300','#0a0504','#fff4ee','#140804'] },
+  // PASTEL
+  { name:'Lemon Lavender', cat:'pastel', c:['#7c4dff','#9c70ff','#fdf8e1','#f3e6ff','#fefaf0'] },
+  { name:'Peach Mint', cat:'pastel', c:['#ff8a70','#3aada8','#fdf6f0','#f0fdfb','#fff8f5'] },
+  { name:'Rose Sage', cat:'pastel', c:['#e8829a','#6aaa7a','#fff0f4','#f0fff4','#fef4f6'] },
+  { name:'Sky Butter', cat:'pastel', c:['#5ab0f0','#f7c840','#f0f8ff','#fffbee','#f5fafe'] },
+  { name:'Lilac Cream', cat:'pastel', c:['#9b7fd4','#d4a84b','#faf5ff','#fffbf0','#f7f3ff'] },
+  { name:'Cotton Candy', cat:'pastel', c:['#ff80ab','#80d8ff','#fff0f8','#f0fbff','#fff5fa'] },
+  // CORPORATE
+  { name:'Navy & Silver', cat:'corporate', c:['#1a4a7a','#8898b0','#f0f4f8','#e8eef5','#0d2a4a'] },
+  { name:'Midnight Blue', cat:'corporate', c:['#0a1628','#3a4460','#f5f5f7','#d0d4dc','#080810'] },
+  { name:'Forest Suit', cat:'corporate', c:['#2a4832','#4a7858','#f2f5ed','#e0e8d8','#1a2e1e'] },
+  { name:'Charcoal Pro', cat:'corporate', c:['#2c2c2c','#6a6a6a','#f8f8f8','#e8e8e8','#1a1a1a'] },
+  { name:'Slate Blue', cat:'corporate', c:['#2a3860','#5060a0','#f4f6fc','#e0e4f4','#181e40'] },
+  { name:'Corporate Red', cat:'corporate', c:['#aa1520','#dd2030','#f8f4f4','#f0e0e0','#700010'] },
+  // NEON
+  { name:'Cyber Pink', cat:'neon', c:['#ff00aa','#aa0066','#0a0008','#ffb8f0','#18000e'] },
+  { name:'Matrix Green', cat:'neon', c:['#00ff44','#00aa28','#040a04','#b8ffcc','#081408'] },
+  { name:'Neon Blue', cat:'neon', c:['#00bbff','#007acc','#020a10','#b8efff','#041018'] },
+  { name:'Electric Yellow', cat:'neon', c:['#ffee00','#ccbb00','#080800','#fffab8','#100e00'] },
+  { name:'Plasma Purple', cat:'neon', c:['#cc00ff','#8800cc','#080010','#f0b8ff','#100018'] },
+  { name:'Neon Coral', cat:'neon', c:['#ff4d6d','#cc1a35','#030303','#ffb8c4','#0c0004'] },
+  // EARTHY
+  { name:'Burnt Sienna', cat:'earthy', c:['#c8622a','#8a3e14','#100c08','#f5e8d8','#1a100a'] },
+  { name:'Terracotta', cat:'earthy', c:['#c0614a','#8a3a28','#100808','#f5e0d8','#180a08'] },
+  { name:'Olive & Sand', cat:'earthy', c:['#7a8a3a','#4a5a18','#080a04','#f0eedc','#0e1006'] },
+  { name:'Ivory Brown', cat:'earthy', c:['#c8b09a','#7a5a3a','#100c08','#f9f5ee','#180e08'] },
+  { name:'Desert Dune', cat:'earthy', c:['#c4a460','#8a6a28','#100c04','#f8f0dc','#180e04'] },
+  { name:'Forest Moss', cat:'earthy', c:['#4a6a3a','#2a4820','#060a04','#dcf0d8','#081008'] },
+  // FUTURISTIC
+  { name:'Void Blue', cat:'futuristic', c:['#00aaff','#0066cc','#000814','#b8e8ff','#000c1e'] },
+  { name:'Quantum Teal', cat:'futuristic', c:['#00ffee','#00ccbb','#000a0a','#b8fffa','#001414'] },
+  { name:'Holo Silver', cat:'futuristic', c:['#c0d0e0','#8090a8','#040810','#e8f0f8','#080c18'] },
+  { name:'Dark Matter', cat:'futuristic', c:['#7a40ff','#4010cc','#04000e','#d8c0ff','#0a0018'] },
+  { name:'Cyber Orange', cat:'futuristic', c:['#ff8800','#cc5500','#0a0400','#ffe0b8','#140800'] },
+  { name:'Space Black', cat:'futuristic', c:['#8888aa','#4444aa','#000004','#d8d8f0','#04040c'] },
+  { name:'Deep Forest', cat:'futuristic', c:['#dcc48c','#7a9a4a','#050a06','#f5edd0','#060e04'] },
+  { name:'Chrome Drift', cat:'futuristic', c:['#e0e8f0','#9090b8','#050508','#f0f4f8','#0a0a10'] },
+  { name:'Solar Flare', cat:'futuristic', c:['#ff9900','#ff4400','#050200','#ffe8b8','#0c0400'] },
+  { name:'Bioluminescence', cat:'futuristic', c:['#00ff88','#00cc55','#000805','#b0ffda','#001005'] },
+];
+
+let currentPalette = PALETTES[0];
+let currentTheme = 'light';
+let activeFilter = 'all';
+
+// ── Init ──
+function init() {
+  renderPaletteGrid('all');
+  applyPalette(PALETTES[0], 0);
+}
+
+// ── Filter ──
+function filterPalettes(cat, el) {
+  activeFilter = cat;
+  document.querySelectorAll('.cds-filter-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  renderPaletteGrid(cat);
+}
+
+function renderPaletteGrid(cat) {
+  const grid = document.getElementById('paletteGrid');
+  const filtered = cat === 'all' ? PALETTES : PALETTES.filter(p => p.cat === cat);
+  grid.innerHTML = filtered.map((p, i) => `
+    <div class="cds-plt-item${p === currentPalette ? ' active' : ''}" onclick="selectPalette(this, '${p.name}')">
+      <div class="cds-plt-swatches">
+        <div class="cds-plt-swatch" style="background:${p.c[0]}"></div>
+        <div class="cds-plt-swatch" style="background:${p.c[2]}"></div>
+        <div class="cds-plt-swatch" style="background:${p.c[1]}"></div>
+        <div class="cds-plt-swatch" style="background:${p.c[3]}"></div>
+      </div>
+      <div class="cds-plt-name">${p.name}</div>
+    </div>
+  `).join('');
+}
+
+function selectPalette(el, name) {
+  document.querySelectorAll('.cds-plt-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  const p = PALETTES.find(x => x.name === name);
+  if (!p) return;
+  currentPalette = p;
+  applyPalette(p);
+}
+
+function applyPalette(p) {
+  document.getElementById('c-primary').value = p.c[0];
+  document.getElementById('c-secondary').value = p.c[1];
+  document.getElementById('c-bg').value = p.c[2];
+  document.getElementById('c-text').value = p.c[3];
+  document.getElementById('c-surface').value = p.c[4];
+  document.getElementById('c-accent').value = p.c[1];
+  applyColors();
+}
+
+// ── Apply Colors ──
+function applyColors() {
+  const primary   = document.getElementById('c-primary').value;
+  const secondary = document.getElementById('c-secondary').value;
+  const accent    = document.getElementById('c-accent').value;
+  const bg        = document.getElementById('c-bg').value;
+  const surface   = document.getElementById('c-surface').value;
+  const textCol   = document.getElementById('c-text').value;
+  const uiStyle   = document.getElementById('uiStyle').value;
+  const btnStyle  = document.getElementById('btnStyle').value;
+
+  // Update hex labels
+  ['primary','secondary','accent','bg','surface','text'].forEach(k => {
+    const el = document.getElementById('h-'+k);
+    if (el) el.textContent = document.getElementById('c-'+k).value;
+  });
+
+  // Button radius
+  const radii = { rounded:'6px', pill:'100px', sharp:'2px', outline:'6px' };
+  const r = radii[btnStyle] || '6px';
+  const isOutline = btnStyle === 'outline';
+
+  // Nav styles
+  const navBg = currentTheme === 'dark' ? adjustColor(bg, -10) : '#ffffff';
+  const navBorder = currentTheme === 'dark' ? `rgba(255,255,255,0.08)` : `rgba(0,0,0,0.08)`;
+  el('luiNav', { background: navBg, borderBottom: `1px solid ${navBorder}` });
+  el('luiLogo', { color: primary });
+  document.querySelectorAll('.lui-link').forEach(l => l.style.color = hexToRgba(textCol, 0.5));
+
+  // Btn
+  const btnBg = isOutline ? 'transparent' : primary;
+  const btnColor = isOutline ? primary : contrastColor(primary);
+  const btnBorder = isOutline ? `1px solid ${primary}` : 'none';
+  el('luiBtn', { background: btnBg, color: btnColor, border: btnBorder, borderRadius: r });
+
+  // Hero
+  const heroGrad = currentTheme === 'dark'
+    ? `linear-gradient(160deg, ${adjustColor(bg, 15)} 0%, ${bg} 60%)`
+    : `linear-gradient(160deg, ${adjustColor(textCol, -80)} 0%, ${adjustColor(textCol, -70)} 60%)`;
+  el('luiHero', { background: heroGrad });
+  el('luiEyebrow', { color: primary });
+  el('luiH1', { color: textCol });
+  el('luiEm', { color: primary });
+  document.querySelectorAll('.lui-p').forEach(p => p.style.color = hexToRgba(textCol, 0.55));
+  el('luiBp', { background: primary, color: contrastColor(primary), borderRadius: r });
+  el('luiBg', { background: hexToRgba(primary, 0.1), color: primary, border: `1px solid ${hexToRgba(primary,0.3)}`, borderRadius: r });
+
+  // Cards
+  const cardsBg = currentTheme === 'dark' ? adjustColor(bg, -5) : adjustColor(textCol, -88);
+  el('luiCards', { background: cardsBg });
+  ['luiCard1','luiCard2','luiCard3'].forEach((id, i) => {
+    el(id, { background: hexToRgba(primary, 0.04), border: `1px solid ${hexToRgba(primary, 0.12)}` });
+    el('luiCardIcon'+(i+1), { background: hexToRgba(primary, 0.12) });
+    el('luiCiDot'+(i+1), { background: primary });
+    el('luiCardS'+(i+1), { color: hexToRgba(textCol, 0.4) });
+  });
+  document.querySelectorAll('.lui-card-t').forEach(t => t.style.color = textCol);
+
+  // Strip
+  const cols = [primary, secondary, accent, bg, surface];
+  cols.forEach((c, i) => { const s = document.getElementById('strip'+i); if(s) s.style.background = c; });
+
+  // Update brand kit
+  applyBrandKit(primary, secondary, accent, bg, surface, textCol, r);
+
+  // Style variant
+  applyStyleVariant(uiStyle, primary, bg, textCol);
+}
+
+function applyStyleVariant(style, primary, bg, text) {
+  const preview = document.getElementById('livePreview');
+  const fontStyle = document.getElementById('fontStyle') ? document.getElementById('fontStyle').value : 'dm';
+  const fonts = {
+    dm: "'DM Sans', sans-serif",
+    playfair: "'Playfair Display', serif",
+    cormorant: "'Cormorant Garamond', serif",
+    mono: "'Courier New', monospace"
+  };
+  preview.style.fontFamily = fonts[fontStyle] || fonts.dm;
+
+  const panelEffect = document.getElementById('panelEffect') ? document.getElementById('panelEffect').value : 'glass';
+  const panel = document.querySelector('.cds-panel');
+  if (panel) {
+    const effects = {
+      glass: `linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%)`,
+      neumorphic: `linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.15) 100%)`,
+      flat: `rgba(255,255,255,0.03)`,
+      frosted: `rgba(255,255,255,0.06)`
+    };
+    panel.style.background = effects[panelEffect] || effects.glass;
+  }
+}
+
+// ── Brand Kit ──
+function applyBrandKit(primary, sec, accent, bg, surface, text, r) {
+  // Card Front
+  el('brandCardFront', { background: bg, color: text });
+  el('bcLogo', { color: primary });
+  el('bcName', { color: text });
+  el('bcTitle', { color: hexToRgba(text, 0.55) });
+  el('bcDivider', { background: primary });
+  el('bcCompany', { color: hexToRgba(text, 0.4) });
+
+  // Card Back
+  el('brandCardBack', { background: surface || adjustColor(bg, 15), color: text });
+  el('bcbPattern', { background: `linear-gradient(135deg, ${primary}, ${sec})` });
+  ['bcbLine1','bcbLine2','bcbLine3'].forEach(id => el(id, { color: text }));
+
+  // Letterhead
+  el('lhHeader', { background: bg });
+  el('lhLogoMark', { background: primary, color: contrastColor(primary) });
+  el('lhBrandName', { color: text });
+  el('lhBrandTagline', { color: hexToRgba(text, 0.5) });
+  el('lhContactRow', { color: hexToRgba(text, 0.5) });
+  el('lhAccentBar', { background: `linear-gradient(90deg, ${primary}, ${sec})` });
+  el('lhBody', { background: currentTheme === 'dark' ? adjustColor(bg, 10) : '#ffffff' });
+  el('lhDate', { color: hexToRgba(text, 0.4) });
+  el('lhTo', { color: text });
+  ['lhLine1','lhLine2','lhLine3'].forEach(id => el(id, { background: hexToRgba(text, 0.1) }));
+  el('lhSigName', { color: text });
+  el('lhSigTitle', { color: hexToRgba(text, 0.5) });
+  el('lhFooter', { background: bg });
+  el('lhFooterBar', { background: primary });
+  el('lhFooterText', { color: hexToRgba(text, 0.4) });
+
+  // Instagram
+  el('igBg', { background: `linear-gradient(135deg, ${bg} 0%, ${adjustColor(bg, 25)} 100%)` });
+  el('igLogo', { color: primary });
+  el('igQuote', { color: text });
+  el('igBrand', { color: hexToRgba(text, 0.5) });
+
+  // LinkedIn
+  el('liBg', { background: `linear-gradient(135deg, ${bg} 0%, ${adjustColor(primary, -40)} 100%)` });
+  el('liTagline', { color: hexToRgba(text, 0.6) });
+  el('liName', { color: text });
+  ['liPill1','liPill2','liPill3'].forEach(id => {
+    el(id, { color: primary, borderColor: hexToRgba(primary, 0.4) });
+  });
+
+  // Envelope
+  el('brandEnvelope', { background: adjustColor(bg, 10), color: text });
+  el('envFlap', { background: `linear-gradient(135deg, ${primary}, ${sec})` });
+  el('envLogo', { color: text });
+  el('envAddress', { color: text });
+  el('envSeal', { background: primary, color: contrastColor(primary) });
+
+  // YouTube Thumbnail
+  el('ytBg', { background: `linear-gradient(160deg, ${adjustColor(bg, 5)} 0%, ${adjustColor(bg, -10)} 50%, ${adjustColor(primary, -50)} 100%)` });
+  el('ytBrandBar', { background: primary });
+  el('ytLogo', { color: hexToRgba(text, 0.6) });
+  el('ytTitle', { color: text });
+  el('ytMeta', { color: hexToRgba(text, 0.5) });
+  el('ytPlay', { background: primary, color: contrastColor(primary) });
+
+  // Facebook Cover
+  el('fbBg', { background: `linear-gradient(135deg, ${adjustColor(bg, 5)} 0%, ${adjustColor(primary, -55)} 100%)` });
+  el('fbAccentCircle', { background: primary });
+  el('fbEyebrow', { color: hexToRgba(text, 0.55) });
+  el('fbTitle', { color: text });
+  el('fbSub', { color: hexToRgba(text, 0.55) });
+
+  // Invoice
+  el('brandInvoice', {});
+  el('invHeader', { background: bg, color: text });
+  el('invLogo', { color: primary });
+  el('invCompany', { color: hexToRgba(text, 0.5) });
+  el('invLabel', { color: hexToRgba(text, 0.4) });
+  el('invNumber', { color: text });
+  el('invBar', { background: `linear-gradient(90deg, ${primary}, ${sec})` });
+  el('invMeta', { background: currentTheme === 'dark' ? adjustColor(bg, 8) : adjustColor(bg, -5), color: text });
+  ['invKey1','invKey2','invKey3'].forEach(id => el(id, { color: hexToRgba(text, 0.4) }));
+  ['invVal1','invVal2','invVal3'].forEach(id => el(id, { color: text }));
+}
+
+// ── Theme ──
+function setTheme(theme) {
+  currentTheme = theme;
+  document.getElementById('btn-dark').classList.toggle('active', theme === 'dark');
+  document.getElementById('btn-light').classList.toggle('active', theme === 'light');
+
+  if (theme === 'light' && document.getElementById('c-bg').value.toLowerCase() < '#808080') {
+    document.getElementById('c-bg').value = '#EEF2F7';
+    document.getElementById('c-surface').value = '#F5F7FB';
+    document.getElementById('c-text').value = '#1F2A37';
+  } else if (theme === 'dark') {
+    document.getElementById('c-bg').value = '#0a0a0a';
+    document.getElementById('c-surface').value = '#141414';
+    document.getElementById('c-text').value = '#f5e8d0';
+  }
+  applyColors();
+}
+
+// ── Tabs ──
+function switchTab(tab, el) {
+  document.querySelectorAll('.cds-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-website').style.display = tab === 'website' ? 'block' : 'none';
+  document.getElementById('tab-brandkit').style.display = tab === 'brandkit' ? 'block' : 'none';
+}
+
+// ── Export ──
+function exportCSS() {
+  const p = document.getElementById('c-primary').value;
+  const s = document.getElementById('c-secondary').value;
+  const a = document.getElementById('c-accent').value;
+  const bg = document.getElementById('c-bg').value;
+  const sf = document.getElementById('c-surface').value;
+  const t = document.getElementById('c-text').value;
+  const css = `:root {\n  --color-primary: ${p};\n  --color-secondary: ${s};\n  --color-accent: ${a};\n  --color-background: ${bg};\n  --color-surface: ${sf};\n  --color-text: ${t};\n}`;
+  navigator.clipboard.writeText(css).then(() => toast('CSS Variables Copied!'));
+}
+
+function copyPalette() {
+  const p = [
+    document.getElementById('c-primary').value,
+    document.getElementById('c-secondary').value,
+    document.getElementById('c-accent').value,
+    document.getElementById('c-bg').value,
+    document.getElementById('c-surface').value,
+    document.getElementById('c-text').value
+  ].join(' · ');
+  navigator.clipboard.writeText(p).then(() => toast('Palette Copied!'));
+}
+
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'cds-toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2200);
+}
+
+// ── Helpers ──
+function el(id, styles) {
+  const e = document.getElementById(id);
+  if (!e) return;
+  Object.assign(e.style, styles);
+}
+
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function contrastColor(hex) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  const lum = (0.299*r + 0.587*g + 0.114*b)/255;
+  return lum > 0.55 ? '#0a0a0a' : '#ffffff';
+}
+
+function adjustColor(hex, amount) {
+  let r = parseInt(hex.slice(1,3),16);
+  let g = parseInt(hex.slice(3,5),16);
+  let b = parseInt(hex.slice(5,7),16);
+  r = Math.max(0, Math.min(255, r + amount));
+  g = Math.max(0, Math.min(255, g + amount));
+  b = Math.max(0, Math.min(255, b + amount));
+  return '#' + [r,g,b].map(x => x.toString(16).padStart(2,'0')).join('');
+}
+
+// ── Scroll to Top Functionality ──
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add('show');
+  } else {
+    scrollToTopBtn.classList.remove('show');
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// ── Boot ──
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
