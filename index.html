@@ -787,30 +787,30 @@
 
       <div class="contact-grid">
         <div class="contact-left slide-in-left">
-          <div class="contact-card neu-card">
+          <form id="contactForm" class="contact-card neu-card" onsubmit="event.preventDefault(); submitContact();">
             <h3>Request a Free Quote</h3>
             <div class="form-group">
               <label>Your Name</label>
               <div class="neu-input-wrap">
-                <input type="text" id="contactName" placeholder="John Doe" class="neu-input" />
+                <input type="text" id="contactName" name="from_name" placeholder="John Doe" class="neu-input" required />
               </div>
             </div>
             <div class="form-group">
               <label>Email Address</label>
               <div class="neu-input-wrap">
-                <input type="email" id="contactEmail" placeholder="john@example.com" class="neu-input" />
+                <input type="email" id="contactEmail" name="from_email" placeholder="john@example.com" class="neu-input" required />
               </div>
             </div>
             <div class="form-group">
               <label>Mobile Number</label>
               <div class="neu-input-wrap">
-                <input type="tel" id="contactPhone" placeholder="+91 98765 43210" class="neu-input" required />
+                <input type="tel" id="contactPhone" name="from_phone" placeholder="+91 98765 43210" class="neu-input" required />
               </div>
             </div>
             <div class="form-group">
               <label>Service Interested In</label>
               <div class="neu-input-wrap">
-                <select id="contactService" class="neu-input">
+                <select id="contactService" name="service_interest" class="neu-input">
                   <option value="">Select a service...</option>
                   <option>Website Development</option>
                   <option>Portfolio Website</option>
@@ -826,12 +826,12 @@
             <div class="form-group">
               <label>Project Details</label>
               <div class="neu-input-wrap">
-                <textarea id="contactMsg" rows="4" placeholder="Tell us about your project requirements..." class="neu-input"></textarea>
+                <textarea id="contactMsg" name="message" rows="4" placeholder="Tell us about your project requirements..." class="neu-input" required></textarea>
               </div>
             </div>
-            <button class="btn btn-primary full-width" onclick="submitContact()">Get Free Quote 🚀</button>
+            <button type="submit" class="btn btn-primary full-width">Get Free Quote 🚀</button>
             <div id="contactSuccess" class="contact-success hidden">✅ Message sent! We'll get back to you within 24 hours.</div>
-          </div>
+          </form>
         </div>
 
         <div class="contact-right slide-in-right">

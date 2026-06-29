@@ -156,6 +156,15 @@
     border-bottom: 1px solid #C5CCD6;
     position: relative;
     background: #EEF2F7;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                margin 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 2500px;
+    opacity: 1;
+    transform: scale(1);
+    overflow: hidden;
   }
 
   .section-meta {
@@ -491,6 +500,81 @@
     margin-bottom: 8px;
   }
   .footer-tagline { font-size: 11px; color: #6B7280; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* Gallery Filter Styles */
+  .gallery-filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 24px 20px;
+    background: linear-gradient(160deg, #EEF2F7 0%, #E3E8F0 100%);
+    border-bottom: 1px solid #C5CCD6;
+    text-align: center;
+    box-shadow: 4px 4px 12px #C5CCD6, -4px -4px 12px #FFFFFF;
+  }
+  
+  .gallery-filter-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6B7280;
+    font-weight: 600;
+  }
+
+  .gallery-filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-radius: 100px;
+    border: 1px solid #C5CCD6;
+    color: #6B7280;
+    background: #EEF2F7;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 3px 3px 8px #C5CCD6, -3px -3px 8px #FFFFFF;
+    outline: none;
+  }
+
+  .filter-btn:hover {
+    color: #4A7BFF;
+    border-color: #6FA4FF;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 12px #C5CCD6, -5px -5px 12px #FFFFFF;
+  }
+
+  .filter-btn.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #4A7BFF, #6FA4FF);
+    border-color: #4A7BFF;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.15), 3px 3px 8px #C5CCD6, -3px -3px 8px #FFFFFF;
+    font-weight: 600;
+    transform: translateY(0);
+  }
+
+  .palette-section.hidden-template {
+    opacity: 0 !important;
+    transform: scale(0.96) !important;
+    max-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom-width: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+  }
 </style>
 </head>
 <body>
@@ -502,25 +586,36 @@
     <div class="agency-subtitle">11 Curated Design Directions · 2026 Collection</div>
   </div>
 
+  <!-- Gallery Page Filter Navigation -->
+  <div class="gallery-filter-container">
+    <div class="gallery-filter-title">Filter by Device Layout</div>
+    <div class="gallery-filter-options">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="desktop">Desktop</button>
+      <button class="filter-btn" data-filter="tablet">Tablet</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+    </div>
+  </div>
+
   <div class="toc">
-    <a href="#palette-burgundy" class="toc-pill">Deep Burgundy</a>
-    <a href="#palette-sage" class="toc-pill">Soft Sage</a>
-    <a href="#palette-pumpkin" class="toc-pill">Pumpkin & Charcoal</a>
-    <a href="#palette-sky" class="toc-pill">Cloudy Sky</a>
-    <a href="#palette-violet" class="toc-pill">Lemon & Violet</a>
-    <a href="#palette-peach" class="toc-pill">Peach & Aqua</a>
-    <a href="#palette-cherry" class="toc-pill">Cherry Red</a>
-    <a href="#palette-gray" class="toc-pill">Mist Gray</a>
-    <a href="#palette-ivory" class="toc-pill">Ivory & Brown</a>
-    <a href="#palette-coral" class="toc-pill">Neon Coral</a>
-    <a href="#palette-forest" class="toc-pill">Deep Forest</a>
+    <a href="#palette-burgundy" class="toc-pill" data-device="desktop">Deep Burgundy</a>
+    <a href="#palette-sage" class="toc-pill" data-device="tablet">Soft Sage</a>
+    <a href="#palette-pumpkin" class="toc-pill" data-device="desktop">Pumpkin & Charcoal</a>
+    <a href="#palette-sky" class="toc-pill" data-device="desktop">Cloudy Sky</a>
+    <a href="#palette-violet" class="toc-pill" data-device="tablet">Lemon & Violet</a>
+    <a href="#palette-peach" class="toc-pill" data-device="tablet">Peach & Aqua</a>
+    <a href="#palette-cherry" class="toc-pill" data-device="tablet">Cherry Red</a>
+    <a href="#palette-gray" class="toc-pill" data-device="desktop">Mist Gray</a>
+    <a href="#palette-ivory" class="toc-pill" data-device="mobile">Ivory & Brown</a>
+    <a href="#palette-coral" class="toc-pill" data-device="mobile">Neon Coral</a>
+    <a href="#palette-forest" class="toc-pill" data-device="mobile">Deep Forest</a>
     <div class="toc-pill" onclick="document.getElementById('custom-design-studio').scrollIntoView({behavior:'smooth'})" style="border-color:#4A7BFF;color:#4A7BFF;background:rgba(74,123,255,0.08);">✦ Design Studio</div>
   </div>
 
   <div class="gallery">
 
     <!-- ──── 01 ──── -->
-    <div class="palette-section" id="palette-burgundy">
+    <div class="palette-section" id="palette-burgundy" data-device="desktop">
       <div class="section-meta">
         <span class="section-number">Palette 01</span>
         <span class="section-mood">Opulent · Timeless · Aristocratic</span>
@@ -578,7 +673,7 @@
     </div>
 
     <!-- ──── 02 ──── -->
-    <div class="palette-section" id="palette-sage">
+    <div class="palette-section" id="palette-sage" data-device="tablet">
       <div class="section-meta">
         <span class="section-number">Palette 02</span>
         <span class="section-mood">Calm · Organic · Wellness-forward</span>
@@ -625,7 +720,7 @@
     </div>
 
     <!-- ──── 03 ──── -->
-    <div class="palette-section" id="palette-pumpkin">
+    <div class="palette-section" id="palette-pumpkin" data-device="desktop">
       <div class="section-meta">
         <span class="section-number">Palette 03</span>
         <span class="section-mood">Bold · Industrial · High-energy</span>
@@ -685,7 +780,7 @@
     </div>
 
     <!-- ──── 04 ──── -->
-    <div class="palette-section" id="palette-sky">
+    <div class="palette-section" id="palette-sky" data-device="desktop">
       <div class="section-meta">
         <span class="section-number">Palette 04</span>
         <span class="section-mood">Trustworthy · Corporate · Clear-headed</span>
@@ -732,7 +827,7 @@
     </div>
 
     <!-- ──── 05 ──── -->
-    <div class="palette-section" id="palette-violet">
+    <div class="palette-section" id="palette-violet" data-device="tablet">
       <div class="section-meta">
         <span class="section-number">Palette 05</span>
         <span class="section-mood">Creative · Playful · Imaginative</span>
@@ -791,7 +886,7 @@
     </div>
 
     <!-- ──── 06 ──── -->
-    <div class="palette-section" id="palette-peach">
+    <div class="palette-section" id="palette-peach" data-device="tablet">
       <div class="section-meta">
         <span class="section-number">Palette 06</span>
         <span class="section-mood">Soft · Refreshing · Spa-like</span>
@@ -844,7 +939,7 @@
     </div>
 
     <!-- ──── 07 ──── -->
-    <div class="palette-section" id="palette-cherry">
+    <div class="palette-section" id="palette-cherry" data-device="tablet">
       <div class="section-meta">
         <span class="section-number">Palette 07</span>
         <span class="section-mood">Energetic · Confident · Unmissable</span>
@@ -891,7 +986,7 @@
     </div>
 
     <!-- ──── 08 ──── -->
-    <div class="palette-section" id="palette-gray">
+    <div class="palette-section" id="palette-gray" data-device="desktop">
       <div class="section-meta">
         <span class="section-number">Palette 08</span>
         <span class="section-mood">Professional · Authoritative · Sleek</span>
@@ -951,7 +1046,7 @@
     </div>
 
     <!-- ──── 09 ──── -->
-    <div class="palette-section" id="palette-ivory">
+    <div class="palette-section" id="palette-ivory" data-device="mobile">
       <div class="section-meta">
         <span class="section-number">Palette 09</span>
         <span class="section-mood">Artisan · Earthy · Heritage</span>
@@ -998,7 +1093,7 @@
     </div>
 
     <!-- ──── 10 ──── -->
-    <div class="palette-section" id="palette-coral">
+    <div class="palette-section" id="palette-coral" data-device="mobile">
       <div class="section-meta">
         <span class="section-number">Palette 10</span>
         <span class="section-mood">Edgy · Disruptive · Futuristic</span>
@@ -1045,7 +1140,7 @@
     </div>
 
     <!-- ──── 11 ──── -->
-    <div class="palette-section" id="palette-forest">
+    <div class="palette-section" id="palette-forest" data-device="mobile">
       <div class="section-meta">
         <span class="section-number">Palette 11</span>
         <span class="section-mood">Sophisticated · Nature-meets-luxury</span>
@@ -2462,6 +2557,7 @@ let activeFilter = 'all';
 function init() {
   renderPaletteGrid('all');
   applyPalette(PALETTES[0], 0);
+  initGalleryFilter();
 }
 
 // ── Filter ──
@@ -2786,6 +2882,43 @@ function scrollToTop() {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
+  });
+}
+
+// ── Gallery Template Filter ──
+function initGalleryFilter() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const sections = document.querySelectorAll('.palette-section[data-device]');
+  const tocPills = document.querySelectorAll('.toc .toc-pill[data-device]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      
+      // Update active button state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter sections
+      sections.forEach(section => {
+        const device = section.getAttribute('data-device');
+        if (filter === 'all' || device === filter) {
+          section.classList.remove('hidden-template');
+        } else {
+          section.classList.add('hidden-template');
+        }
+      });
+
+      // Filter TOC pills
+      tocPills.forEach(pill => {
+        const device = pill.getAttribute('data-device');
+        if (filter === 'all' || device === filter) {
+          pill.style.display = '';
+        } else {
+          pill.style.display = 'none';
+        }
+      });
+    });
   });
 }
 

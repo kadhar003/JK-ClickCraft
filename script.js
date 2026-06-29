@@ -462,10 +462,14 @@ window.submitContact = async function () {
   const templateParams = {
     from_name: name,
     from_email: email,
-    mobile_number: phone,
+    from_phone: phone,          // Matches user's EmailJS template variable: {{from_phone}}
+    mobile_number: phone,       // Fallback 1
+    phone_number: phone,        // Fallback 2
+    phone: phone,               // Fallback 3
+    mobile: phone,              // Fallback 4
     service_interest: service || 'Not specified',
+    subject: service || 'Web Design/Development Query',
     message: msg,
-    // to_name: 'JK Click Craft',
   };
 
   try {
