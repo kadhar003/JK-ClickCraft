@@ -1,0 +1,29 @@
+/* public-reviews-widget.css
+   Minimal styling for embedding approved reviews on jkclickcraft.in.
+   Adjust colors/fonts to exactly match your live site's CSS variables. */
+
+#jkcc-reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding: 1rem 0;
+}
+
+.jkcc-review-card {
+  background: rgba(18, 27, 48, 0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.jkcc-review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(6,182,212,0.18);
+}
+.jkcc-review-card__stars { color: #22e5ff; letter-spacing: 3px; margin-bottom: 0.6rem; }
+.jkcc-review-card__message { font-size: 0.92rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 1rem; }
+.jkcc-review-card__author { display: flex; flex-direction: column; }
+.jkcc-review-card__author strong { font-size: 0.9rem; color: #fff; }
+.jkcc-review-card__author span { font-size: 0.78rem; color: #8fa3b8; }
+.jkcc-reviews-empty { color: #8fa3b8; text-align: center; padding: 2rem 0; }

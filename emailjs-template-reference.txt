@@ -1,0 +1,45 @@
+# EmailJS Template Guide & Reference
+
+To ensure your EmailJS template correctly displays all submitted contact form details, set up your EmailJS Email Template (on your emailjs.com dashboard) as follows:
+
+---
+
+## 1. Subject Field
+Set the email subject to:
+New Inquiry: {{service_interest}} from {{from_name}}
+
+---
+
+## 2. Email Body Template
+Copy and paste this into the main content editor of your template:
+
+--------------------------------------------------
+You have received a new quote request from JK Click Craft website.
+
+Sender Details:
+- Name: {{from_name}}
+- Email: {{from_email}}
+- Phone: {{from_phone}}
+
+Project Details:
+- Service Interested In: {{service_interest}}
+- Message:
+{{message}}
+--------------------------------------------------
+
+---
+
+## 3. Template Variables Mapping Table
+These correspond exactly to the parameters sent by the JavaScript code:
+
+| Template Variable | Form Field Source | Description |
+|---|---|---|
+| {{from_name}} | Your Name input | Sender's full name |
+| {{from_email}} | Email Address input | Sender's email address |
+| {{from_phone}} | Mobile Number input | Sender's 10-digit mobile number |
+| {{service_interest}} | Service dropdown | Selected service option |
+| {{message}} | Project Details textarea | The project requirements text |
+
+---
+
+*Note: You do not need to edit any JavaScript files in your code editor to apply this. Just update your template text inside the EmailJS web dashboard to match the variables above.*

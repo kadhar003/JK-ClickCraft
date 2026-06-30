@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RN9Z1CZWMC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RN9Z1CZWMC');
+  </script>
+  <meta charset="UTF-8" />
+  <meta google-site-verification=999JYkQGzXHGjoqCgMFPYsXFCnufF41wuNiy9U_Qatg
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JK ClickCraft — Sign In</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="JK logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+ 
+  <!-- Firebase SDK (v10 modular compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+ 
+  <style>
+    /* ═══════════════════════════════════════════
+       CSS VARIABLES & RESET
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+ 
+    :root {
+      --bg:          #e0e5ec;
+      --card:        #f0f4fa;
+      --card-dark:   #dce4ec;
+      --neu-light:   #f7faff;
+      --neu-dark:    #c8d4e3;
+      --shadow-out:  6px 6px 14px rgba(163, 177, 198, 0.35), -6px -6px 14px rgba(255, 255, 255, 0.9);
+      --shadow-in:   inset 4px 4px 10px rgba(163, 177, 198, 0.35), inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+      --shadow-in-sm:inset 2px 2px 6px rgba(163, 177, 198, 0.25), inset -2px -2px 6px rgba(255, 255, 255, 0.9);
+      --grad:        linear-gradient(135deg, #5b8dee 0%, #3a6cd4 100%);
+      --grad-hover:  linear-gradient(135deg, #3a6cd4 0%, #7aa3f4 100%);
+      --accent:      #5b8dee;
+      --accent2:     #3a6cd4;
+      --text-dark:   #2d3748;
+      --text-mid:    #718096;
+      --text-light:  #a0aec0;
+      --error:       #e53e3e;
+      --success:     #27c387;
+      --radius-lg:   24px;
+      --radius-md:   14px;
+      --radius-pill: 50px;
+      --transition:  0.6s ease-in-out;
+      --font-head:   'Syne', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+    }
+ 
+    html, body {
+      height: 100%;
+      font-family: var(--font-body);
+    }
+ 
+    body {
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+ 
+    /* Ambient background blobs */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(91, 141, 238, 0.35), transparent 70%);
+      top: -120px; left: -120px;
+    }
+    body::after {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(122, 163, 244, 0.28), transparent 70%);
+      bottom: -100px; right: -100px;
+    }
+ 
+    /* ═══════════════════════════════════════════
+       MAIN WRAPPER
+    ═══════════════════════════════════════════ */
+    .auth-wrapper {
+      position: relative;
+      z-index: 1;
+      width: min(900px, 96vw);
+      min-height: 560px;
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow:
+        12px 12px 32px rgba(0,0,0,0.35),
+        -4px -4px 16px rgba(255,255,255,0.08);
+      overflow: hidden;
+      display: flex;
+    }
+ 
+    /* ═══════════════════════════════════════════
+       FORM PANELS
+    ═══════════════════════════════════════════ */
+    .form-panel {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 36px;
+      transition: transform var(--transition), opacity var(--transition);
+      will-change: transform;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(91, 141, 238, 0.35) transparent;
+    }
+    .form-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+    .form-panel::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .form-panel::-webkit-scrollbar-thumb {
+      background: rgba(91, 141, 238, 0.35);
+      border-radius: 10px;
+    }
+    .form-panel::-webkit-scrollbar-thumb:hover {
+      background: rgba(91, 141, 238, 0.5);
+    }
+ 
+    /* Sign In panel — starts on the left */
+    .panel-signin {
+      left: 0;
+      transform: translateX(0);
+      z-index: 2;
+      opacity: 1;
+    }
+ 
+    /* Sign Up panel — starts off-screen right */
+    .panel-signup {
+      right: 0;
+      transform: translateX(100%);
+      z-index: 1;
+      opacity: 0;
+    }
+ 
+    /* Active state changes */
+    .auth-wrapper.signup-active .panel-signin {
+      transform: translateX(-100%);
+      opacity: 0;
+      z-index: 1;
+    }
+    .auth-wrapper.signup-active .panel-signup {
+      transform: translateX(0);
+      opacity: 1;
+      z-index: 2;
+    }
+ 
+    /* ═══════════════════════════════════════════
+       GRADIENT OVERLAY PANEL
+    ═══════════════════════════════════════════ */
+    .overlay-panel {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      background: var(--grad);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform var(--transition);
+      will-change: transform;
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      overflow: hidden;
+    }
+ 
+    /* Overlay decorative shapes */
+    .overlay-panel::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 60px solid rgba(255,255,255,0.08);
+      top: -80px; right: -80px;
+    }
+    .overlay-panel::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 40px solid rgba(255,255,255,0.06);
+      bottom: -60px; left: -40px;
+    }
+ 
+    /* Overlay slides left when signup is active */
+    .auth-wrapper.signup-active .overlay-panel {
+      transform: translateX(-100%);
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+ 
+    .overlay-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .overlay-logo span {
+      opacity: 0.7;
+      font-weight: 400;
+    }
+ 
+    .overlay-title {
+      font-family: var(--font-head);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+ 
+    .overlay-sub {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+ 
+    .overlay-btn {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.85);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 12px 32px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .overlay-btn:hover {
+      background: rgba(255,255,255,0.18);
+      transform: scale(1.04);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .overlay-btn:active { transform: scale(0.98); }
+ 
+    /* ═══════════════════════════════════════════
+       FORM CONTENT STYLES
+    ═══════════════════════════════════════════ */
+    .form-title {
+      font-family: var(--font-head);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      text-align: center;
+    }
+ 
+    .form-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 22px;
+    }
+ 
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+ 
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+ 
+    .input-group label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding-left: 2px;
+    }
+ 
+    .input-wrap {
+      position: relative;
+    }
+ 
+    .input-wrap .icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 0.95rem;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+ 
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 13px 14px 13px 40px;
+      border: none;
+      border-radius: var(--radius-md);
+      background: var(--card);
+      box-shadow: var(--shadow-in-sm);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: box-shadow 0.25s;
+    }
+ 
+    input::placeholder { color: var(--text-light); }
+ 
+    input:focus {
+      box-shadow:
+        inset 2px 2px 6px #b8c4ce,
+        inset -2px -2px 6px #eef3f8,
+        0 0 0 2px rgba(0,198,255,0.35);
+    }
+ 
+    input:focus + .icon,
+    .input-wrap:focus-within .icon {
+      color: var(--accent);
+    }
+ 
+    /* Field error */
+    .field-error {
+      font-size: 0.75rem;
+      color: var(--error);
+      padding-left: 2px;
+      min-height: 14px;
+    }
+ 
+    /* Form-level message bar */
+    .form-msg {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+    .form-msg.error {
+      display: flex;
+      background: rgba(224,92,110,0.12);
+      color: var(--error);
+      border: 1px solid rgba(224,92,110,0.25);
+    }
+    .form-msg.success {
+      display: flex;
+      background: rgba(39,195,135,0.12);
+      color: var(--success);
+      border: 1px solid rgba(39,195,135,0.25);
+    }
+ 
+    /* ═══════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════ */
+    .btn-primary {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: var(--radius-pill);
+      background: var(--grad);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      box-shadow: 4px 4px 12px rgba(0,198,255,0.3), -2px -2px 8px rgba(77,184,255,0.15);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.25s;
+    }
+    .btn-primary:hover::before { background: rgba(255,255,255,0.1); }
+    .btn-primary:hover {
+      transform: scale(1.025);
+      box-shadow: 6px 6px 18px rgba(0,198,255,0.4), -2px -2px 10px rgba(77,184,255,0.2);
+    }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+ 
+    /* Loading spinner inside button */
+    .btn-primary .spinner {
+      display: none;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto;
+    }
+    .btn-primary.loading .btn-label { display: none; }
+    .btn-primary.loading .spinner { display: block; }
+ 
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+ 
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-light);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--neu-dark));
+    }
+    .divider::after {
+      background: linear-gradient(to left, transparent, var(--neu-dark));
+    }
+ 
+    /* Forgot password link */
+    .forgot-link {
+      text-align: right;
+      font-size: 0.78rem;
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .forgot-link:hover { color: var(--accent2); text-decoration: underline; }
+ 
+    /* Optional label */
+    .optional-tag {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-left: 4px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+ 
+    /* ═══════════════════════════════════════════
+       PASSWORD STRENGTH
+    ═══════════════════════════════════════════ */
+    .strength-bar {
+      display: flex;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .strength-bar span {
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--neu-dark);
+      transition: background 0.3s;
+    }
+    .strength-bar.weak span:nth-child(1)   { background: #e05c6e; }
+    .strength-bar.fair span:nth-child(-n+2) { background: #f5a623; }
+    .strength-bar.good span:nth-child(-n+3) { background: #27c387; }
+    .strength-bar.strong span               { background: #00c6ff; }
+ 
+    /* ═══════════════════════════════════════════
+       MOBILE — STACKED LAYOUT
+    ═══════════════════════════════════════════ */
+    @media (max-width: 700px) {
+      body { align-items: flex-start; padding: 0; overflow-y: auto; }
+ 
+      .auth-wrapper {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: none;
+      }
+ 
+      /* On mobile, panels stack vertically & use translateY */
+      .form-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 36px 28px 28px;
+        transform: none !important;
+        opacity: 1 !important;
+        z-index: 2 !important;
+        left: auto; right: auto;
+      }
+ 
+      /* Show/hide panels with display on mobile */
+      .panel-signup {
+        display: none;
+      }
+      .auth-wrapper.signup-active .panel-signin {
+        display: none;
+        transform: none !important;
+      }
+      .auth-wrapper.signup-active .panel-signup {
+        display: flex;
+      }
+ 
+      /* Overlay becomes a top banner on mobile */
+      .overlay-panel {
+        position: relative;
+        top: auto; left: auto;
+        width: 100%;
+        height: auto;
+        padding: 28px 24px 24px;
+        border-radius: 0;
+        transform: none !important;
+        order: -1;
+      }
+ 
+      .overlay-logo { font-size: 1.3rem; margin-bottom: 10px; }
+      .overlay-title { font-size: 1.1rem; margin-bottom: 8px; }
+      .overlay-sub { font-size: 0.82rem; margin-bottom: 16px; }
+ 
+      .form-title { font-size: 1.3rem; }
+    }
+ 
+    /* Medium tablets */
+    @media (min-width: 701px) and (max-width: 900px) {
+      .auth-wrapper { min-height: 600px; }
+      .form-panel { padding: 32px 24px; }
+      .form-title { font-size: 1.3rem; }
+    }
+ 
+    /* ═══════════════════════════════════════════
+       FLOATING LABEL ANIMATION (optional polish)
+    ═══════════════════════════════════════════ */
+    .auth-wrapper {
+      animation: wrapperIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes wrapperIn {
+      from { opacity: 0; transform: translateY(28px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+ 
+<div class="auth-wrapper" id="authWrapper">
+ 
+  <!-- ────────────────────────────────────────
+       SIGN IN PANEL
+  ──────────────────────────────────────────── -->
+  <div class="form-panel panel-signin" aria-label="Sign in form">
+    <h1 class="form-title">Welcome back</h1>
+    <p class="form-subtitle">Sign in to continue to your workspace</p>
+ 
+    <form id="signinForm" novalidate>
+      <div class="form-msg" id="signinMsg" role="alert"></div>
+ 
+      <div class="input-group">
+        <label for="siEmail">Email</label>
+        <div class="input-wrap">
+          <input type="email" id="siEmail" placeholder="you@company.com" autocomplete="email" />
+          <span class="icon">✉</span>
+        </div>
+        <span class="field-error" id="siEmailErr"></span>
+      </div>
+ 
+      <div class="input-group">
+        <label for="siPass">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="siPass" placeholder="••••••••" autocomplete="current-password" />
+          <span class="icon">🔒</span>
+        </div>
+        <span class="field-error" id="siPassErr"></span>
+      </div>
+ 
+      <a class="forgot-link" href="#" tabindex="0" onclick="handleForgotPassword(event)">Forgot password?</a>
+ 
+      <button type="submit" class="btn-primary" id="signinBtn">
+        <span class="btn-label">Sign In</span>
+        <span class="spinner"></span>
+      </button>
+    </form>
+  </div>
+ 
+  <!-- ────────────────────────────────────────
+       SIGN UP PANEL
+  ──────────────────────────────────────────── -->
+  <div class="form-panel panel-signup" aria-label="Sign up form">
+    <h1 class="form-title">Create account</h1>
+    <p class="form-subtitle">Join thousands of teams already on JK ClickCraft</p>
+ 
+    <form id="signupForm" novalidate>
+      <div class="form-msg" id="signupMsg" role="alert"></div>
+ 
+      <div class="input-group">
+        <label for="suName">Full Name</label>
+        <div class="input-wrap">
+          <input type="text" id="suName" placeholder="Jane Doe" autocomplete="name" />
+          <span class="icon">👤</span>
+        </div>
+        <span class="field-error" id="suNameErr"></span>
+      </div>
+ 
+      <div class="input-group">
+        <label for="suEmail">Email</label>
+        <div class="input-wrap">
+          <input type="email" id="suEmail" placeholder="you@company.com" autocomplete="email" />
+          <span class="icon">✉</span>
+        </div>
+        <span class="field-error" id="suEmailErr"></span>
+      </div>
+ 
+      <div class="input-group">
+        <label for="suPass">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="suPass" placeholder="Min. 8 characters" autocomplete="new-password"
+                 oninput="checkStrength(this.value)" />
+          <span class="icon">🔒</span>
+        </div>
+        <div class="strength-bar" id="strengthBar">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span class="field-error" id="suPassErr"></span>
+      </div>
+ 
+      <div class="input-group">
+        <label for="suConfirm">Confirm Password</label>
+        <div class="input-wrap">
+          <input type="password" id="suConfirm" placeholder="Repeat password" autocomplete="new-password" />
+          <span class="icon">🔐</span>
+        </div>
+        <span class="field-error" id="suConfirmErr"></span>
+      </div>
+ 
+      <div class="input-group">
+        <label for="suCompany">Company <span class="optional-tag">(optional)</span></label>
+        <div class="input-wrap">
+          <input type="text" id="suCompany" placeholder="Acme Inc." autocomplete="organization" />
+          <span class="icon">🏢</span>
+        </div>
+      </div>
+ 
+      <button type="submit" class="btn-primary" id="signupBtn">
+        <span class="btn-label">Create Account</span>
+        <span class="spinner"></span>
+      </button>
+    </form>
+  </div>
+ 
+  <!-- ────────────────────────────────────────
+       SLIDING OVERLAY
+  ──────────────────────────────────────────── -->
+  <div class="overlay-panel" id="overlayPanel">
+    <img style="width: 200px; height:200px" src="JK logo.png" alt="logo">
+    <div class="overlay-logo">JK ClickCraft  <span>Auth</span></div>
+ 
+    <div id="overlaySignin" style="display:flex;flex-direction:column;align-items:center;">
+      <h2 class="overlay-title">New here?</h2>
+      <p class="overlay-sub">Create your free account and start building in minutes. No credit card required.</p>
+      <button class="overlay-btn" onclick="switchToSignup()">Create Account</button>
+    </div>
+ 
+    <div id="overlaySignup" style="display:none;flex-direction:column;align-items:center;">
+      <h2 class="overlay-title">Already a member?</h2>
+      <p class="overlay-sub">Sign back in and pick up right where you left off with your team.</p>
+      <button class="overlay-btn" onclick="switchToSignin()">Sign In</button>
+    </div>
+  </div>
+ 
+</div><!-- /auth-wrapper -->
+ 
+ 
+<script>
+  /* ═══════════════════════════════════════════
+     FIREBASE CONFIG — replace with your own
+  ═══════════════════════════════════════════ */
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCTkagXaUUKQ68Dyxfxo5r7Wut3idsPXCk",
+  authDomain: "jk-clickcrafts.firebaseapp.com",
+  projectId: "jk-clickcrafts",
+  storageBucket: "jk-clickcrafts.firebasestorage.app",
+  messagingSenderId: "652266342700",
+  appId: "1:652266342700:web:a7b9c39164ea0d85bb8489",
+  measurementId: "G-623KZGH400"
+};
+ 
+  let auth;
+  try {
+    firebase.initializeApp(firebaseConfig);
+    auth = firebase.auth();
+  } catch (e) {
+    console.error("Firebase initialization failed. Authentication is unavailable.", e);
+  }
+ 
+  /* ═══════════════════════════════════════════
+     PANEL SWITCHING
+  ═══════════════════════════════════════════ */
+  const wrapper        = document.getElementById('authWrapper');
+  const overlaySignin  = document.getElementById('overlaySignin');
+  const overlaySignup  = document.getElementById('overlaySignup');
+ 
+  function switchToSignup() {
+    wrapper.classList.add('signup-active');
+    overlaySignin.style.display = 'none';
+    overlaySignup.style.display = 'flex';
+    clearMessages();
+  }
+ 
+  function switchToSignin() {
+    wrapper.classList.remove('signup-active');
+    overlaySignin.style.display = 'flex';
+    overlaySignup.style.display = 'none';
+    clearMessages();
+  }
+ 
+  function clearMessages() {
+    ['signinMsg','signupMsg'].forEach(id => {
+      const el = document.getElementById(id);
+      el.className = 'form-msg';
+      el.textContent = '';
+    });
+    ['siEmailErr','siPassErr','suNameErr','suEmailErr','suPassErr','suConfirmErr'].forEach(id => {
+      document.getElementById(id).textContent = '';
+    });
+  }
+ 
+  /* ═══════════════════════════════════════════
+     SHOW MESSAGE HELPERS
+  ═══════════════════════════════════════════ */
+  function showMsg(id, type, text) {
+    const el = document.getElementById(id);
+    el.className = 'form-msg ' + type;
+    el.innerHTML = (type === 'error' ? '⚠ ' : '✓ ') + text;
+  }
+ 
+  function fieldErr(id, text) {
+    document.getElementById(id).textContent = text;
+  }
+ 
+  function setLoading(btnId, loading) {
+    const btn = document.getElementById(btnId);
+    if (loading) btn.classList.add('loading');
+    else btn.classList.remove('loading');
+    btn.disabled = loading;
+  }
+ 
+  /* ═══════════════════════════════════════════
+     PASSWORD STRENGTH
+  ═══════════════════════════════════════════ */
+  function checkStrength(val) {
+    const bar = document.getElementById('strengthBar');
+    bar.className = 'strength-bar';
+    if (!val) return;
+    let score = 0;
+    if (val.length >= 8)  score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
+    const levels = ['', 'weak', 'fair', 'good', 'strong'];
+    bar.classList.add(levels[score] || 'weak');
+  }
+ 
+  /* ═══════════════════════════════════════════
+     VALIDATION HELPERS
+  ═══════════════════════════════════════════ */
+  function validateEmail(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+  }
+ 
+  /* ═══════════════════════════════════════════
+     FIREBASE ERROR → HUMAN MESSAGE
+  ═══════════════════════════════════════════ */
+  function firebaseErr(code) {
+    const map = {
+      'auth/user-not-found':       'No account found with this email.',
+      'auth/wrong-password':       'Incorrect password. Please try again.',
+      'auth/email-already-in-use': 'An account already exists with this email.',
+      'auth/weak-password':        'Password must be at least 6 characters.',
+      'auth/invalid-email':        'Please enter a valid email address.',
+      'auth/popup-closed-by-user': 'Google sign-in was cancelled.',
+      'auth/network-request-failed':'Network error. Check your connection.',
+      'auth/too-many-requests':    'Too many attempts. Please wait and try again.',
+      'auth/operation-not-allowed':'This sign-in method is not enabled.',
+    };
+    return map[code] || 'Something went wrong. Please try again.';
+  }
+ 
+  /* ═══════════════════════════════════════════
+     REDIRECT AFTER SUCCESS
+  ═══════════════════════════════════════════ */
+  function redirectToDashboard() {
+    if (!auth) {
+      console.error('Firebase auth is unavailable.');
+      return;
+    }
+    window.location.href = 'index.html';
+  }
+ 
+  /* ═══════════════════════════════════════════
+     SIGN IN
+  ═══════════════════════════════════════════ */
+  document.getElementById('signinForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearMessages();
+ 
+    const email = document.getElementById('siEmail').value.trim();
+    const pass  = document.getElementById('siPass').value;
+    let valid = true;
+ 
+    if (!email) { fieldErr('siEmailErr', 'Email is required.'); valid = false; }
+    else if (!validateEmail(email)) { fieldErr('siEmailErr', 'Enter a valid email.'); valid = false; }
+    if (!pass) { fieldErr('siPassErr', 'Password is required.'); valid = false; }
+ 
+    if (!valid) return;
+ 
+    setLoading('signinBtn', true);
+    try {
+      if (!auth) throw new Error('auth-unavailable');
+      await auth.signInWithEmailAndPassword(email, pass);
+      const nameToStore = (auth.currentUser && auth.currentUser.displayName)
+        ? auth.currentUser.displayName
+        : email.split('@')[0];
+      localStorage.setItem('username', nameToStore);
+      localStorage.setItem('displayName', nameToStore);
+      redirectToDashboard();
+    } catch (err) {
+      if (err.message === 'auth-unavailable') {
+        showMsg('signinMsg', 'error', 'Authentication service is currently unavailable.');
+      } else {
+        showMsg('signinMsg', 'error', firebaseErr(err.code));
+      }
+    } finally {
+      setLoading('signinBtn', false);
+    }
+  });
+ 
+  /* ═══════════════════════════════════════════
+     SIGN UP
+  ═══════════════════════════════════════════ */
+  document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearMessages();
+ 
+    const name    = document.getElementById('suName').value.trim();
+    const email   = document.getElementById('suEmail').value.trim();
+    const pass    = document.getElementById('suPass').value;
+    const confirm = document.getElementById('suConfirm').value;
+    let valid = true;
+ 
+    if (!name) { fieldErr('suNameErr', 'Name is required.'); valid = false; }
+    if (!email) { fieldErr('suEmailErr', 'Email is required.'); valid = false; }
+    else if (!validateEmail(email)) { fieldErr('suEmailErr', 'Enter a valid email.'); valid = false; }
+    if (!pass) { fieldErr('suPassErr', 'Password is required.'); valid = false; }
+    else if (pass.length < 8) { fieldErr('suPassErr', 'Minimum 8 characters.'); valid = false; }
+    if (pass !== confirm) { fieldErr('suConfirmErr', 'Passwords do not match.'); valid = false; }
+ 
+    if (!valid) return;
+ 
+    setLoading('signupBtn', true);
+    try {
+      if (!auth) throw new Error('auth-unavailable');
+      const cred = await auth.createUserWithEmailAndPassword(email, pass);
+      await cred.user.updateProfile({ displayName: name });
+      localStorage.setItem('username', name);
+      localStorage.setItem('displayName', name);
+      redirectToDashboard();
+    } catch (err) {
+      if (err.message === 'auth-unavailable') {
+        showMsg('signupMsg', 'error', 'Authentication service is currently unavailable.');
+      } else {
+        showMsg('signupMsg', 'error', firebaseErr(err.code));
+      }
+    } finally {
+      setLoading('signupBtn', false);
+    }
+  });
+ 
+  /* ═══════════════════════════════════════════
+     FORGOT PASSWORD
+  ═══════════════════════════════════════════ */
+  async function handleForgotPassword(e) {
+    e.preventDefault();
+    const email = document.getElementById('siEmail').value.trim();
+    clearMessages();
+ 
+    if (!email || !validateEmail(email)) {
+      fieldErr('siEmailErr', 'Enter your email above first.');
+      return;
+    }
+ 
+    if (!auth) {
+      showMsg('signinMsg', 'error', 'Authentication service is currently unavailable.');
+      return;
+    }
+ 
+    try {
+      await auth.sendPasswordResetEmail(email);
+      showMsg('signinMsg', 'success', 'Reset link sent! Check your inbox (also check your spam folder).');
+    } catch (err) {
+      showMsg('signinMsg', 'error', firebaseErr(err.code));
+    }
+  }
+ 
+  /* ═══════════════════════════════════════════
+     DEMO UTILITY
+  ═══════════════════════════════════════════ */
+
+ 
+  /* ═══════════════════════════════════════════
+     AUTH STATE OBSERVER — auto-redirect if logged in
+  ═══════════════════════════════════════════ */
+</script>
+</body>
+</html>

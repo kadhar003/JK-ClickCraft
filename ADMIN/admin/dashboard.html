@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Review Dashboard | JK ClickCraft Admin</title>
+<link rel="stylesheet" href="css/admin-style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar glass">
+  <div class="topbar__brand">
+    <div class="login-brand__logo">JK</div>
+    <div>
+      <h1>Review Dashboard</h1>
+      <span>JK ClickCraft Admin Panel</span>
+    </div>
+  </div>
+  <div class="topbar__actions">
+    <span class="admin-email-pill" id="adminEmailLabel">—</span>
+    <button class="icon-btn" id="themeToggle" title="Toggle theme">🌓</button>
+    <button class="btn btn--ghost" id="logoutBtn">Logout</button>
+  </div>
+</header>
+
+<main class="dashboard-main">
+
+  <!-- Stats -->
+  <section class="stats-grid">
+    <div class="stat-card stat-card--total glass">
+      <span class="stat-label">Total Reviews</span>
+      <span class="stat-value" id="statTotal">0</span>
+    </div>
+    <div class="stat-card stat-card--pending glass">
+      <span class="stat-label">Pending</span>
+      <span class="stat-value" id="statPending">0</span>
+    </div>
+    <div class="stat-card stat-card--approved glass">
+      <span class="stat-label">Approved</span>
+      <span class="stat-value" id="statApproved">0</span>
+    </div>
+    <div class="stat-card stat-card--rejected glass">
+      <span class="stat-label">Rejected</span>
+      <span class="stat-value" id="statRejected">0</span>
+    </div>
+    <div class="stat-card stat-card--rating glass">
+      <span class="stat-label">Avg Rating</span>
+      <span class="stat-value" id="statAvgRating">0.0</span>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="controls-bar">
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Search by name, company, email, service..." />
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-status="all">All</button>
+      <button class="filter-tab" data-status="pending">Pending</button>
+      <button class="filter-tab" data-status="approved">Approved</button>
+      <button class="filter-tab" data-status="rejected">Rejected</button>
+    </div>
+  </section>
+
+  <!-- Skeleton loading state -->
+  <section class="skeleton-grid" id="skeletonGrid">
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+  </section>
+
+  <!-- Reviews grid -->
+  <section class="reviews-grid" id="reviewsGrid" style="display:none;"></section>
+
+  <!-- Empty state -->
+  <div class="empty-state" id="emptyState">
+    <span class="empty-icon">🗂️</span>
+    <h3>No reviews found</h3>
+    <p>Try adjusting your search or filter.</p>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination" id="pagination"></div>
+
+</main>
+
+<!-- Details Modal -->
+<div class="modal" id="detailsModal">
+  <div class="modal__panel glass">
+    <button class="modal__close" id="modalCloseBtn">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div id="toastContainer"></div>
+
+<!-- Firebase compat SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

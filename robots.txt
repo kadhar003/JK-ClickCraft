@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Block access to sensitive files
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+
+# Allow access to CSS, JS, and images
+Allow: /style.css
+Allow: /script.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.svg
+Allow: /*.ico
+
+# Sitemap
+Sitemap: https://jkclickcraft.in/sitemap.xml
