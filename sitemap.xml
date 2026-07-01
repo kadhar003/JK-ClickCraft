@@ -9,6 +9,7 @@
 
 <url>
   <loc>https://jkclickcraft.in/</loc>
+<<<<<<< HEAD
   <lastmod>2026-07-01T00:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
@@ -25,6 +26,16 @@
   <changefreq>monthly</changefreq>
   <priority>0.30</priority>
 </url>
+=======
+  <lastmod>2026-06-08T06:31:33+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://jkclickcraft.in/gallery</loc>
+  <lastmod>2026-06-08T06:31:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+>>>>>>> 5486e4b995d34b87455b6c87170260f769b5e8ac
 
 
 </urlset>

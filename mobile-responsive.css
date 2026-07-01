@@ -347,7 +347,11 @@ body { overflow-x: hidden; }
 
   /* Color Design System (CDS) panel */
   .cds-panel { padding: 16px 12px; }
+<<<<<<< HEAD
   .cds-color-grid, .cds-controls-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+=======
+  .cds-controls { grid-template-columns: 1fr 1fr; gap: 10px; }
+>>>>>>> 5486e4b995d34b87455b6c87170260f769b5e8ac
 
   /* Tab bar */
   .cds-tabs { flex-wrap: wrap; gap: 6px; }
@@ -359,6 +363,7 @@ body { overflow-x: hidden; }
   /* Scroll-to-top */
   .scroll-to-top { bottom: 16px; right: 16px; width: 42px; height: 42px; font-size: 18px; }
 
+<<<<<<< HEAD
   /* Mockup sections responsive layout overrides (scoped to simulated mobile/tablet views) */
   .mockup.view-mobile .m1-cards, .mockup.view-tablet .m1-cards { grid-template-columns: 1fr !important; }
   .mockup.view-mobile .m2-hero, .mockup.view-tablet .m2-hero { grid-template-columns: 1fr !important; text-align: center; }
@@ -476,11 +481,32 @@ body { overflow-x: hidden; }
   .mockup.view-mobile .lh-contact-row, .mockup.view-tablet .lh-contact-row {
     text-align: left !important;
   }
+=======
+  /* Mockup sections responsive layout overrides */
+  .m1-cards { grid-template-columns: 1fr !important; }
+  .m2-hero { grid-template-columns: 1fr !important; text-align: center; }
+  .m2-stats { grid-template-columns: 1fr !important; text-align: center; }
+  .m3-features { grid-template-columns: 1fr !important; }
+  .m4-cards { grid-template-columns: 1fr !important; }
+  .m5-pricing { grid-template-columns: 1fr !important; }
+  .m6-hero { grid-template-columns: 1fr !important; text-align: center; }
+  .m7-bottom { grid-template-columns: repeat(2, 1fr) !important; }
+  .m8-hero { grid-template-columns: 1fr !important; text-align: center; }
+  .m8-bottom { grid-template-columns: 1fr !important; }
+  .m9-hero { grid-template-columns: 1fr !important; }
+  .m9-products { grid-template-columns: 1fr !important; }
+  .m10-grid { grid-template-columns: 1fr !important; }
+  .m11-services { grid-template-columns: 1fr !important; }
+>>>>>>> 5486e4b995d34b87455b6c87170260f769b5e8ac
 }
 
 @media (max-width: 480px) {
   .agency-title  { font-size: 18px; }
+<<<<<<< HEAD
   .cds-color-grid, .cds-controls-grid { grid-template-columns: 1fr !important; }
+=======
+  .cds-controls  { grid-template-columns: 1fr; }
+>>>>>>> 5486e4b995d34b87455b6c87170260f769b5e8ac
   .toc-pill      { font-size: 8px; padding: 4px 8px; }
 }
 

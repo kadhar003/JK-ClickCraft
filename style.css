@@ -1756,7 +1756,10 @@ a.ci-val:hover { color: var(--accent); }
 
 .delay1 { transition-delay: 0.12s; }
 .delay2 { transition-delay: 0.24s; }
+<<<<<<< HEAD
 .delay3 { transition-delay: 0.36s; }
+=======
+>>>>>>> 5486e4b995d34b87455b6c87170260f769b5e8ac
 
 /* ═══════════════════════════════════════════
    KEYFRAMES
@@ -2007,6 +2010,7 @@ a.ci-val:hover { color: var(--accent); }
   }
 }
 
+<<<<<<< HEAD
 /* ═══════════════════════════════════════════
    TEAM SECTION (NEUMORPHIC STYLE)
    ═══════════════════════════════════════════ */
@@ -2264,5 +2268,7 @@ a.ci-val:hover { color: var(--accent); }
   .jkc-aperture { display: none; }
 }
 
+=======
+>>>>>>> 5486e4b995d34b87455b6c87170260f769b5e8ac
 
 

@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 
+<<<<<<< HEAD
 # Block access to sensitive or internal directories
 Disallow: /ADMIN/
 Disallow: /private/
@@ -11,6 +12,16 @@ Disallow: /admin/
 Allow: /style.css
 Allow: /script.js
 Allow: /manifest.json
+=======
+# Block access to sensitive files
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+
+# Allow access to CSS, JS, and images
+Allow: /style.css
+Allow: /script.js
+>>>>>>> 5486e4b995d34b87455b6c87170260f769b5e8ac
 Allow: /*.png
 Allow: /*.jpg
 Allow: /*.jpeg
