@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Our Professionals – JK ClickCraft</title>
+  <meta name="description" content="Meet the creative minds behind JK ClickCraft – a passionate team of photographers, editors, and storytellers dedicated to capturing your most treasured moments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ─── CSS Custom Properties – JK ClickCraft Brand Palette ─── */
+    :root {
+      --jkc-gold: #C9A84C;
+      --jkc-gold-light: #E8C97B;
+      --jkc-gold-dark: #9A7630;
+      --jkc-deep: #1A1208;
+      --jkc-ink: #2C1F0A;
+      --jkc-charcoal: #3D3526;
+      --jkc-warm-grey: #7A6E5E;
+      --jkc-cream: #F5EDD8;
+      --jkc-parchment: #FAF4E8;
+      --jkc-white: #FFFFFF;
+      --jkc-lens-ring: rgba(201, 168, 76, 0.18);
+      --jkc-lens-glow: rgba(201, 168, 76, 0.08);
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+
+      --section-pad-v: clamp(4rem, 8vw, 7rem);
+      --card-radius: 20px;
+      --badge-radius: 100px;
+      --transition-smooth: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      --transition-fast: 200ms ease;
+    }
+
+    /* ─── Reset scoped to this section ─── */
+    .jkc-team-section *,
+    .jkc-team-section *::before,
+    .jkc-team-section *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ─── Section wrapper ─── */
+    .jkc-team-section {
+      position: relative;
+      background: var(--jkc-deep);
+      padding: var(--section-pad-v) 0;
+      overflow: hidden;
+      font-family: var(--font-body);
+    }
+
+    /* ─── Ambient background texture (lens aperture motif) ─── */
+    .jkc-team-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201, 168, 76, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 100%, rgba(201, 168, 76, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ─── Decorative aperture rings ─── */
+    .jkc-aperture {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid var(--jkc-lens-ring);
+      pointer-events: none;
+      animation: jkc-rotate-slow 30s linear infinite;
+    }
+    .jkc-aperture:nth-child(1) {
+      width: 420px; height: 420px;
+      top: -100px; right: -80px;
+    }
+    .jkc-aperture:nth-child(2) {
+      width: 260px; height: 260px;
+      top: -40px; right: -20px;
+      animation-direction: reverse;
+      animation-duration: 20s;
+    }
+    .jkc-aperture:nth-child(3) {
+      width: 600px; height: 600px;
+      bottom: -200px; left: -150px;
+      opacity: 0.5;
+      animation-duration: 45s;
+    }
+    @keyframes jkc-rotate-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ─── Container ─── */
+    .jkc-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+    }
+
+    /* ─── Section Header ─── */
+    .jkc-section-header {
+      text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .jkc-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--jkc-gold);
+      margin-bottom: 1.1rem;
+    }
+    .jkc-eyebrow::before,
+    .jkc-eyebrow::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--jkc-gold);
+      opacity: 0.6;
+    }
+
+    .jkc-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--jkc-cream);
+      line-height: 1.2;
+      margin-bottom: 1.1rem;
+    }
+    .jkc-section-title em {
+      font-style: italic;
+      color: var(--jkc-gold-light);
+    }
+
+    .jkc-section-desc {
+      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      color: var(--jkc-warm-grey);
+      line-height: 1.8;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ─── Team Grid ─── */
+    .jkc-team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(1.25rem, 3vw, 2rem);
+    }
+
+    /* ─── Individual Team Card ─── */
+    .jkc-team-card {
+      position: relative;
+      background: linear-gradient(160deg, #231808 0%, #1a1208 100%);
+      border: 1px solid rgba(201, 168, 76, 0.14);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+      cursor: default;
+    }
+    .jkc-team-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--card-radius);
+      background: linear-gradient(160deg, rgba(201,168,76,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-smooth);
+      pointer-events: none;
+    }
+    .jkc-team-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(201, 168, 76, 0.42);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.1);
+    }
+    .jkc-team-card:hover::after { opacity: 1; }
+
+    /* ─── Portrait area ─── */
+    .jkc-portrait-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #120D04;
+    }
+
+    /* Gradient overlay from bottom for readability */
+    .jkc-portrait-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(26, 18, 8, 0.5) 70%,
+        rgba(26, 18, 8, 0.92) 100%
+      );
+      z-index: 1;
+    }
+
+    .jkc-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform var(--transition-smooth);
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .jkc-team-card:hover .jkc-portrait-img {
+      transform: scale(1.05);
+      filter: grayscale(0%) contrast(1.0);
+    }
+
+    /* SVG placeholder avatar for teams without photos */
+    .jkc-portrait-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #2a1d08 0%, #120d04 100%);
+    }
+    .jkc-portrait-placeholder svg {
+      width: 55%;
+      height: 55%;
+      opacity: 0.25;
+    }
+
+    /* Shutter badge – top right of portrait */
+    .jkc-shutter-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+    .jkc-shutter-badge i {
+      font-size: 16px;
+      color: var(--jkc-gold-light);
+    }
+    .jkc-team-card:hover .jkc-shutter-badge {
+      background: rgba(201, 168, 76, 0.22);
+      transform: rotate(45deg);
+    }
+
+    /* ─── Card Body ─── */
+    .jkc-card-body {
+      position: relative;
+      z-index: 2;
+      padding: clamp(1.2rem, 3vw, 1.6rem);
+    }
+
+    .jkc-member-meta {
+      margin-bottom: 1rem;
+    }
+
+    .jkc-member-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      font-weight: 700;
+      color: var(--jkc-cream);
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+      transition: color var(--transition-fast);
+    }
+    .jkc-team-card:hover .jkc-member-name { color: var(--jkc-gold-light); }
+
+    .jkc-member-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--jkc-gold);
+    }
+
+    .jkc-member-bio {
+      font-size: 0.88rem;
+      color: var(--jkc-warm-grey);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+    }
+
+    /* ─── Skill Badges ─── */
+    .jkc-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.25rem;
+    }
+
+    .jkc-badge {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 4px 11px;
+      border-radius: var(--badge-radius);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      background: rgba(201, 168, 76, 0.07);
+      color: var(--jkc-gold-light);
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+    }
+    .jkc-team-card:hover .jkc-badge {
+      background: rgba(201, 168, 76, 0.14);
+      border-color: rgba(201, 168, 76, 0.4);
+    }
+
+    /* ─── Divider ─── */
+    .jkc-card-divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,168,76,0.18), rgba(201,168,76,0.04));
+      margin-bottom: 1.1rem;
+    }
+
+    /* ─── Social & Contact Icons ─── */
+    .jkc-social-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .jkc-social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--jkc-warm-grey);
+      text-decoration: none;
+      font-size: 14px;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+    .jkc-social-link:hover {
+      background: rgba(201, 168, 76, 0.15);
+      border-color: rgba(201, 168, 76, 0.5);
+      color: var(--jkc-gold-light);
+      transform: translateY(-2px);
+    }
+    .jkc-social-link:focus-visible {
+      outline: 2px solid var(--jkc-gold);
+      outline-offset: 2px;
+    }
+
+    /* ─── Scroll-reveal animation ─── */
+    .jkc-team-card {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+    }
+    .jkc-team-card.jkc-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .jkc-team-card.jkc-visible:hover {
+      transform: translateY(-8px);
+    }
+    .jkc-team-card:nth-child(1) { transition-delay: 0.05s; }
+    .jkc-team-card:nth-child(2) { transition-delay: 0.15s; }
+    .jkc-team-card:nth-child(3) { transition-delay: 0.25s; }
+    .jkc-team-card:nth-child(4) { transition-delay: 0.35s; }
+
+    /* ─── Reduced motion ─── */
+    @media (prefers-reduced-motion: reduce) {
+      .jkc-team-card,
+      .jkc-portrait-img,
+      .jkc-aperture,
+      .jkc-shutter-badge { transition: none !important; animation: none !important; }
+      .jkc-team-card { opacity: 1; transform: none; }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .jkc-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 560px) {
+      .jkc-team-grid {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 0 auto;
+      }
+      .jkc-aperture { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  ═══════════════════════════════════════════════════════════════════
+  JK ClickCraft — "Meet Our Professionals" Section
+  Insert this entire block immediately after the Our Services section.
+  ═══════════════════════════════════════════════════════════════════
+-->
+<section
+  class="jkc-team-section"
+  id="our-team"
+  aria-label="Meet our professionals"
+  itemscope
+  itemtype="https://schema.org/Organization"
+>
+  <!-- Decorative aperture rings -->
+  <div class="jkc-aperture" aria-hidden="true"></div>
+  <div class="jkc-aperture" aria-hidden="true"></div>
+  <div class="jkc-aperture" aria-hidden="true"></div>
+
+  <div class="jkc-container">
+
+    <!-- Section Header -->
+    <header class="jkc-section-header">
+      <p class="jkc-eyebrow" aria-hidden="true">The Creatives</p>
+      <h2 class="jkc-section-title">
+        Faces Behind the <em>Frame</em>
+      </h2>
+      <p class="jkc-section-desc">
+        Every image we deliver carries the passion, precision, and personality
+        of our close-knit team. Meet the people who show up for every golden hour,
+        every candid laugh, every frame that matters.
+      </p>
+    </header>
+
+    <!-- Team Grid -->
+    <div class="jkc-team-grid" role="list">
+
+      <!-- ── Card 1 – Lead Photographer (Owner / You) ── -->
+      <article class="jkc-team-card" role="listitem" itemscope itemtype="https://schema.org/Person">
+        <div class="jkc-portrait-wrap">
+          <!--
+            Replace the placeholder below with your real transparent PNG:
+            <img src="assets/team/jk-founder.png" alt="[Your Name], Founder & Lead Photographer at JK ClickCraft" class="jkc-portrait-img" width="480" height="600" loading="lazy" />
+          -->
+          <div class="jkc-portrait-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="80" cy="68" r="42" stroke="#C9A84C" stroke-width="1.5"/>
+              <path d="M16 200 C16 155 144 155 144 200" stroke="#C9A84C" stroke-width="1.5"/>
+              <circle cx="80" cy="68" r="18" stroke="#C9A84C" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+          </div>
+          <div class="jkc-shutter-badge" aria-hidden="true">
+            <i class="fa-solid fa-camera-retro"></i>
+          </div>
+        </div>
+        <div class="jkc-card-body">
+          <div class="jkc-member-meta">
+            <h3 class="jkc-member-name" itemprop="name">[Your Name]</h3>
+            <p class="jkc-member-role" itemprop="jobTitle">Founder &amp; Lead Photographer</p>
+          </div>
+          <p class="jkc-member-bio" itemprop="description">
+            With an eye trained to find light where others see shadow, the founding vision
+            of JK ClickCraft lives in every composition — capturing emotion, not just moments.
+          </p>
+          <div class="jkc-skills" aria-label="Specialisations">
+            <span class="jkc-badge">Wedding Photography</span>
+            <span class="jkc-badge">Portrait Studio</span>
+            <span class="jkc-badge">Cinematic Storytelling</span>
+          </div>
+          <div class="jkc-card-divider" aria-hidden="true"></div>
+          <nav class="jkc-social-row" aria-label="Contact [Your Name]">
+            <a href="https://instagram.com/jkclickcraft" class="jkc-social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank" itemprop="sameAs">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/919XXXXXXXXX" class="jkc-social-link" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:hello@jkclickcraft.in" class="jkc-social-link" aria-label="Email" itemprop="email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.jkclickcraft.in" class="jkc-social-link" aria-label="Portfolio" rel="noopener noreferrer" target="_blank" itemprop="url">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </nav>
+        </div>
+      </article>
+
+      <!-- ── Card 2 – Videographer / Co-Photographer ── -->
+      <article class="jkc-team-card" role="listitem" itemscope itemtype="https://schema.org/Person">
+        <div class="jkc-portrait-wrap">
+          <!--
+            Replace with:
+            <img src="assets/team/videographer.png" alt="[Name], Senior Videographer at JK ClickCraft" class="jkc-portrait-img" width="480" height="600" loading="lazy" />
+          -->
+          <div class="jkc-portrait-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="80" cy="68" r="42" stroke="#C9A84C" stroke-width="1.5"/>
+              <path d="M16 200 C16 155 144 155 144 200" stroke="#C9A84C" stroke-width="1.5"/>
+              <circle cx="80" cy="68" r="18" stroke="#C9A84C" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+          </div>
+          <div class="jkc-shutter-badge" aria-hidden="true">
+            <i class="fa-solid fa-film"></i>
+          </div>
+        </div>
+        <div class="jkc-card-body">
+          <div class="jkc-member-meta">
+            <h3 class="jkc-member-name" itemprop="name">[Team Member Name]</h3>
+            <p class="jkc-member-role" itemprop="jobTitle">Senior Videographer</p>
+          </div>
+          <p class="jkc-member-bio" itemprop="description">
+            A natural storyteller through motion — weaving music, movement, and memory
+            into cinematic films that play beautifully decades after the event.
+          </p>
+          <div class="jkc-skills" aria-label="Specialisations">
+            <span class="jkc-badge">Cinematic Films</span>
+            <span class="jkc-badge">Drone Aerial</span>
+            <span class="jkc-badge">Colour Grading</span>
+          </div>
+          <div class="jkc-card-divider" aria-hidden="true"></div>
+          <nav class="jkc-social-row" aria-label="Contact [Team Member Name]">
+            <a href="https://instagram.com/jkclickcraft" class="jkc-social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank" itemprop="sameAs">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.youtube.com/@jkclickcraft" class="jkc-social-link" aria-label="YouTube" rel="noopener noreferrer" target="_blank" itemprop="sameAs">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:hello@jkclickcraft.in" class="jkc-social-link" aria-label="Email" itemprop="email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </a>
+          </nav>
+        </div>
+      </article>
+
+      <!-- ── Card 3 – Photo Editor / Retoucher ── -->
+      <article class="jkc-team-card" role="listitem" itemscope itemtype="https://schema.org/Person">
+        <div class="jkc-portrait-wrap">
+          <!--
+            Replace with:
+            <img src="assets/team/editor.png" alt="[Name], Lead Photo Editor at JK ClickCraft" class="jkc-portrait-img" width="480" height="600" loading="lazy" />
+          -->
+          <div class="jkc-portrait-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="80" cy="68" r="42" stroke="#C9A84C" stroke-width="1.5"/>
+              <path d="M16 200 C16 155 144 155 144 200" stroke="#C9A84C" stroke-width="1.5"/>
+              <circle cx="80" cy="68" r="18" stroke="#C9A84C" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+          </div>
+          <div class="jkc-shutter-badge" aria-hidden="true">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+        </div>
+        <div class="jkc-card-body">
+          <div class="jkc-member-meta">
+            <h3 class="jkc-member-name" itemprop="name">[Team Member Name]</h3>
+            <p class="jkc-member-role" itemprop="jobTitle">Lead Photo Editor</p>
+          </div>
+          <p class="jkc-member-bio" itemprop="description">
+            Where the shutter stops, the artistry continues. Our editor refines every
+            image into its most luminous, most timeless self — skin tones, light, and soul intact.
+          </p>
+          <div class="jkc-skills" aria-label="Specialisations">
+            <span class="jkc-badge">Advanced Retouching</span>
+            <span class="jkc-badge">Lightroom Masking</span>
+            <span class="jkc-badge">Album Design</span>
+          </div>
+          <div class="jkc-card-divider" aria-hidden="true"></div>
+          <nav class="jkc-social-row" aria-label="Contact [Team Member Name]">
+            <a href="https://instagram.com/jkclickcraft" class="jkc-social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank" itemprop="sameAs">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.behance.net/" class="jkc-social-link" aria-label="Behance portfolio" rel="noopener noreferrer" target="_blank" itemprop="sameAs">
+              <i class="fa-brands fa-behance" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:hello@jkclickcraft.in" class="jkc-social-link" aria-label="Email" itemprop="email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </a>
+          </nav>
+        </div>
+      </article>
+
+      <!-- ── Card 4 – Client Manager / Second Shooter ── -->
+      <article class="jkc-team-card" role="listitem" itemscope itemtype="https://schema.org/Person">
+        <div class="jkc-portrait-wrap">
+          <!--
+            Replace with:
+            <img src="assets/team/client-manager.png" alt="[Name], Client Experience Manager at JK ClickCraft" class="jkc-portrait-img" width="480" height="600" loading="lazy" />
+          -->
+          <div class="jkc-portrait-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="80" cy="68" r="42" stroke="#C9A84C" stroke-width="1.5"/>
+              <path d="M16 200 C16 155 144 155 144 200" stroke="#C9A84C" stroke-width="1.5"/>
+              <circle cx="80" cy="68" r="18" stroke="#C9A84C" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+          </div>
+          <div class="jkc-shutter-badge" aria-hidden="true">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+        <div class="jkc-card-body">
+          <div class="jkc-member-meta">
+            <h3 class="jkc-member-name" itemprop="name">[Team Member Name]</h3>
+            <p class="jkc-member-role" itemprop="jobTitle">Client Experience Manager</p>
+          </div>
+          <p class="jkc-member-bio" itemprop="description">
+            From the first inquiry to the final album delivery, this person ensures every
+            JK ClickCraft client feels heard, cared for, and genuinely excited for what's ahead.
+          </p>
+          <div class="jkc-skills" aria-label="Specialisations">
+            <span class="jkc-badge">Client Relations</span>
+            <span class="jkc-badge">Second Shooting</span>
+            <span class="jkc-badge">On-site Coordination</span>
+          </div>
+          <div class="jkc-card-divider" aria-hidden="true"></div>
+          <nav class="jkc-social-row" aria-label="Contact [Team Member Name]">
+            <a href="https://instagram.com/jkclickcraft" class="jkc-social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank" itemprop="sameAs">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/919XXXXXXXXX" class="jkc-social-link" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:hello@jkclickcraft.in" class="jkc-social-link" aria-label="Email" itemprop="email">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </a>
+          </nav>
+        </div>
+      </article>
+
+    </div><!-- /jkc-team-grid -->
+  </div><!-- /jkc-container -->
+</section>
+<!--
+  ═══════════════════════════════════════════════════════════════════
+  End of JK ClickCraft Team Section
+  ═══════════════════════════════════════════════════════════════════
+-->
+
+<script>
+(function () {
+  'use strict';
+  /* Scroll-reveal using IntersectionObserver */
+  var cards = document.querySelectorAll('.jkc-team-card');
+  if (!cards.length) return;
+
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (mq.matches) {
+    cards.forEach(function (c) { c.classList.add('jkc-visible'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('jkc-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  cards.forEach(function (card) { observer.observe(card); });
+})();
+</script>
+
+</body>
+</html>
