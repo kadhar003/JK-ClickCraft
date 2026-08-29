@@ -1756,6 +1756,7 @@ a.ci-val:hover { color: var(--accent); }
 
 .delay1 { transition-delay: 0.12s; }
 .delay2 { transition-delay: 0.24s; }
+.delay3 { transition-delay: 0.36s; }
 
 /* ═══════════════════════════════════════════
    KEYFRAMES
@@ -2005,6 +2006,5 @@ a.ci-val:hover { color: var(--accent); }
     font-size: 0.85rem;
   }
 }
-
 
 
