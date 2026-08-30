@@ -1,0 +1,5 @@
+/* TEAM */
+Developer: JK ClickCraft
+Site: https://jkclickcraft.in
+Location: Tiruppur, Tamil Nadu, India
+Focus: Professional Web Design, Website Development, UI/UX Design, SEO, Cloud Hosting, React, Next.js, Firebase, and Business Automation.
